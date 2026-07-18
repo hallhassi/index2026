@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <title>Young Lions Artist Editions by Blaise Larmee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html">Blaise Larmee</a>
+        <a href="books.html">books</a>
+        <a href="shows.html">shows</a>
+    </header>
+    <h1 class="center">Young Lions Artist Editions</h1>
+    <blockquote>
+        The original book with a print glued to the cover.
+    </blockquote>
+    <blockquote>
+        "Everything in Larmee's work fufills Edward Gorey's belief that all great art is never about what it presents itself as. Here, in a 'debut' graphic novel published in 2010, the work appears to be a naturalistic cartoon novella, with highly accomplished but very contemporary drawing. The story can be enjoyed on those terms, or as a critical statement about the very idea of such a book." Austin English
+    </blockquote>
+    <blockquote>
+        "the story of a cadre of bored performance artists looking for a new inspiration, and finding it in the form of
+        a fresh-faced young girl." Rob Clough
+    </blockquote>
+    <div class="grid">
+        <article data-url="young-lions-artist-edition-01.html">
+            <img src="lo/young-lions-artist-edition-01.jpg">
+            <p>Young Lions (Artist Edition) 01</p>
+            <p>$25</p>
+            <a class="buy" href="https://buy.stripe.com/fZu4gz9ya2PLfxAbMMbV633">BUY</a>
+        </article>
+
+        <article data-url="young-lions-artist-edition-02.html">
+            <img src="lo/young-lions-artist-edition-02.jpg">
+            <p>Young Lions (Artist Edition) 02</p>
+            <p>$25</p>
+            <a class="buy" href="https://buy.stripe.com/7sYaEXh0CdupdpscQQbV634">BUY</a>
+        </article>
+
+        <article data-url="young-lions-artist-edition-03.html">
+            <img src="lo/young-lions-artist-edition-03.jpg">
+            <p>Young Lions (Artist Edition) 03</p>
+            <p>$25</p>
+            <a class="buy" href="https://buy.stripe.com/00w8wPbGi9e9fxAaIIbV635">BUY</a>
+        </article>
+
+        <article data-url="young-lions-artist-edition-04.html">
+            <img src="lo/young-lions-artist-edition-04.jpg">
+            <p>Young Lions (Artist Edition) 04</p>
+            <p>$25</p>
+            <a class="buy" href="https://buy.stripe.com/4gM9AT9ya4XT858bMMbV636">BUY</a>
+        </article>
+
+        <article data-url="young-lions-artist-edition-05.html">
+            <img src="lo/young-lions-artist-edition-05.jpg">
+            <p>Young Lions (Artist Edition) 05</p>
+            <p>$25</p>
+            <a class="buy" href="https://buy.stripe.com/5kQ7sL9ya61Xdps2ccbV637">BUY</a>
+        </article>
+
+        <article data-url="young-lions-artist-edition-06.html">
+            <img src="lo/young-lions-artist-edition-06.jpg">
+            <p>Young Lions (Artist Edition) 06</p>
+            <p>$25</p>
+            <a class="buy" href="https://buy.stripe.com/4gM5kD25I4XTclo044bV638">BUY</a>
+        </article>
+
+        <article data-url="young-lions-artist-edition-07.html">
+            <img src="lo/young-lions-artist-edition-07.jpg">
+            <p>Young Lions (Artist Edition) 07</p>
+            <p>$25</p>
+            <a class="buy" href="https://buy.stripe.com/aFacN57q23TP1GK188bV639">BUY</a>
+        </article>
+
+        <article data-url="young-lions-artist-edition-08.html">
+            <img src="lo/young-lions-artist-edition-08.jpg">
+            <p>Young Lions (Artist Edition) 08</p>
+            <p>$25</p>
+            <a class="buy" href="https://buy.stripe.com/bJe9AT25Icql4SW5oobV63a">BUY</a>
+        </article>
+
+        <article data-url="young-lions-artist-edition-09.html">
+            <img src="lo/young-lions-artist-edition-09.jpg">
+            <p>Young Lions (Artist Edition) 09</p>
+            <p>$25</p>
+            <a class="buy" href="https://buy.stripe.com/8x2aEXbGibmhgBEeYYbV63b">BUY</a>
+        </article>
+
+        <article data-url="young-lions-artist-edition-10.html">
+            <img src="lo/young-lions-artist-edition-10.jpg">
+            <p>Young Lions (Artist Edition) 10</p>
+            <p>$25</p>
+            <a class="buy" href="https://buy.stripe.com/bJe7sL4dQ9e9bhk3ggbV63c">BUY</a>
+        </article>
+
+    </div>
+        <script>
+        const books = document.querySelectorAll('article');
+
+        books.forEach(book => {
+            book.addEventListener('click', (e) => {
+                if (e.target.closest('a')) {
+                    return;
+                }
+                if (book.dataset.url) {
+                    window.location.href = book.dataset.url;
+                }
+            });
+        });
+    </script>

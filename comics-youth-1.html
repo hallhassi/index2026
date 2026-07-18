@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Comics Youth 1 by Blaise Larmee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body id="book">
+    <header>
+        <a href="index.html">Blaise Larmee</a>
+        <a href="books.html">books</a>
+        <a href="shows.html">shows</a>
+    </header>
+    <main>
+        <h1>Comics Youth 1</h1>
+        <img src="lo/comics-youth-1.jpg">
+        <p>$5, 16 pages, half letter, self-published, 2009</p>
+        <blockquote>"A true classic of zine making and comics journalism, this is a comic magazine edited by Blaise
+            Larmee where he interviews Jason T. Miles, Jason Overby and the person writing this. Lots of ideas that were
+            in the air at the time of Domino's early 2010's birth can be found here." Austin English</blockquote>
+        <a class="buy" href="https://buy.stripe.com/8x214ndOqgGB8586ssbV62Z">BUY</a>
+        <img src="hi/comics-youth-1.jpg">
+    </main>
+    <div class="grid">
+        <article data-url="combo-01.html">
+            <img src="combo-01.png">
+            <p>Comics Youth 1 and 2</p>
+            <p>$10</p>
+            <a class="buy" href="https://buy.stripe.com/7sY8wP6lYfCx714aIIbV631">BUY</a>
+        </article>
+    </div>
+
+    <script>
+        const books = document.querySelectorAll('article');
+
+        books.forEach(book => {
+            book.addEventListener('click', (e) => {
+                if (e.target.closest('a')) {
+                    return;
+                }
+                if (book.dataset.url) {
+                    window.location.href = book.dataset.url;
+                }
+            });
+        });
+    </script>

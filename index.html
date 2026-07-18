@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <title>Blaise Larmee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <header>
+        <h1>Blaise Larmee</h1>
+        <a href="books.html">books</a>
+        <a href="shows.html">shows</a>
+    </header>
+    <div id="image">
+        <a><img id="random"></a>
+    </div>
+    <div id="nav">
+        <a href="bio.html">bio</a>
+    </div>
+<script>
+    // Helper function to dynamically generate sequential image arrays
+    // Set folderPrefix to 'lo/' if these new images are also in your 'lo' folder
+    function generateImages(template, maxCount, folderPrefix = 'lo/') {
+        const list = [];
+        for (let i = 1; i <= maxCount; i++) {
+            const paddedNum = String(i).padStart(2, '0'); // Formats 1 as '01', 2 as '02', etc.
+            list.push(`${folderPrefix}${template}${paddedNum}.jpg`);
+        }
+        return list;
+    }
+
+    const imageData = [
+        // 1. Your original dataset (91 images)
+        {
+            "src": "2001.html",
+            "hrefs": generateImages("2017-2001-", 91)
+        },
+        // 2. 3 Books Artist Edition (28 images)
+        {
+            "src": "3-books-artist-editions.html",
+            "hrefs": generateImages("3-books-artist-edition-", 28)
+        },
+        // 3. Young Lions Artist Edition (10 images)
+        {
+            "src": "young-lions-artist-editions.html",
+            "hrefs": generateImages("young-lions-artist-edition-", 10)
+        },
+        // 4. 2024 Apartment Gallery (10 images)
+        {
+            "src": "apartment-gallery.html",
+            "hrefs": generateImages("2024-apartment-", 10)
+        },
+        // 5. 2017 My Parents (7 images)
+        {
+            "src": "my-parents.html",
+            "hrefs": generateImages("2017-myparents-", 7)
+        }
+    ];
+
+    // --- DOM Manipulation Logic (Unchanged) ---
+
+    // 1. Pick a random object from the main array
+    const randomIndex = Math.floor(Math.random() * imageData.length);
+    const randomItem = imageData[randomIndex];
+
+    // 2. Target your elements
+    const imgElement = document.getElementById('random');
+    const linkElement = imgElement ? imgElement.parentElement : null;
+
+    // 3. Update the DOM
+    if (imgElement && randomItem) {
+        // A. Pick a random image from the "hrefs" array of this specific item
+        const randomHrefsIndex = Math.floor(Math.random() * randomItem.hrefs.length);
+        const randomImageSrc = randomItem.hrefs[randomHrefsIndex];
+
+        // B. Update the <img> tag's src attribute with the image path
+        imgElement.src = randomImageSrc;
+
+        // C. If the image is inside an <a> tag, update its destination to the page URL ("src")
+        if (linkElement && linkElement.tagName === 'A') {
+            linkElement.href = randomItem.src;
+        }
+    }
+</script>
+</body>
+
+</html>
