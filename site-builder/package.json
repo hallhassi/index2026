@@ -1,0 +1,14 @@
+{
+  "name": "blaiselarmee-site-builder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build process for blaiselarmee.com — generates all book/combo/edition pages and Stripe payment links from a single data file.",
+  "scripts": {
+    "links": "node scripts/generate-stripe-links.js",
+    "build": "node scripts/build-site.js",
+    "update-shipping": "node scripts/update-shipping-rates.js"
+  },
+  "dependencies": {
+    "stripe": "^17.0.0"
+  }
+}
