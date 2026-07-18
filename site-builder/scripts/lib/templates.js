@@ -332,7 +332,6 @@ function bookThumbnail(b) {
   }
   return "";
 }
-
 // ----------------------------------------------------------------------------
 // PAGE: books.html (main gallery)
 // ----------------------------------------------------------------------------
@@ -408,6 +407,19 @@ ${editionScriptEntries}
         const imgTargets = [${editionSets.map((_, i) => `document.getElementById('random-${i}')`).join(", ")}];
 
 ${editionScriptAssignments}
+
+        // Shuffle the gallery articles in place
+        (function() {
+            const grid = document.querySelector('div.grid');
+            if (grid) {
+                const articles = Array.from(grid.querySelectorAll('article'));
+                for (let i = articles.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [articles[i], articles[j]] = [articles[j], articles[i]];
+                }
+                articles.forEach(article => grid.appendChild(article));
+            }
+        })();
     </script>
 ${clickNavScript}
 </body>

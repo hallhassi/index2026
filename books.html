@@ -93,6 +93,19 @@
             const idx = Math.floor(Math.random() * imageData.set_3_books.length);
             imgTargets[1].src = imageData.set_3_books[idx];
         }
+
+        // Shuffle the gallery articles in place
+        (function() {
+            const grid = document.querySelector('div.grid');
+            if (grid) {
+                const articles = Array.from(grid.querySelectorAll('article'));
+                for (let i = articles.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [articles[i], articles[j]] = [articles[j], articles[i]];
+                }
+                articles.forEach(article => grid.appendChild(article));
+            }
+        })();
     </script>
     <script>
         const books = document.querySelectorAll('article');
