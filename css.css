@@ -21,7 +21,9 @@ blockquote {
 body {
     margin-bottom: 8em;
     line-height: 3em;
-    background-color: red;
+    background-color: #ff0000;
+    background-color: color(display-p3 1 0 0);
+    background-color: color(rec2020 1 0 0);
     text-align: center;
 }
 
@@ -99,7 +101,7 @@ main>img {
 
 #image,
 main>img:first-of-type {
-    max-width:50%;
+    max-width: 50%;
 }
 
 article.combo {
@@ -108,9 +110,9 @@ article.combo {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 300px));    
-    justify-content: center; 
-    gap: 20px; 
+    grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+    justify-content: center;
+    gap: 20px;
     margin: 0 auto;
 }
 
@@ -119,7 +121,7 @@ article.combo {
     float: left;
 }
 
-#bio{
+#bio {
     margin: 1em 30px;
     white-space: pre-wrap;
     text-align: left;
