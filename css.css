@@ -19,7 +19,7 @@ blockquote {
 }
 
 body {
-    margin-bottom: 8em;
+    margin: 0 1em 8em 1em;
     line-height: 3em;
     background-color: #ff0000;
     background-color: color(display-p3 1 0 0);
@@ -67,15 +67,12 @@ article {
     padding: 1.5em 20px;
 }
 
-#image {
-    width: fit-content;
-    margin: 1em 10px;
-    padding: 2em 20px;
+img {
+max-height: calc(100vh - 11em);
 }
 
 article,
-a.buy,
-#image {
+a.buy {
     background-color: rgba(9, 9, 9, .1);
     border-radius: 1em;
 }
@@ -99,7 +96,6 @@ main>img {
     margin: 8em auto;
 }
 
-#image,
 main>img:first-of-type {
     max-width: 50%;
 }
@@ -116,15 +112,12 @@ article.combo {
     margin: 0 auto;
 }
 
-#nav,
-#image {
-    float: left;
-}
-
 #bio {
-    margin: 1em 30px;
+    font-family:monospace;
     white-space: pre-wrap;
     text-align: left;
+    width:fit-content;
+    margin: auto;
 }
 
 #bio a,
