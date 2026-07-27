@@ -68,7 +68,7 @@ article {
 }
 
 @media (orientation: landscape) {
-    img {
+    #featured-article img {
         max-height: calc(100vh - 11em);
     }
 }

@@ -34,6 +34,7 @@ function headerBlock({ activeLabel } = {}) {
         <a href="index.html">Blaise Larmee</a>
         ${booksLink}
         <a href="shows.html">shows</a>
+        <a href="bio.html">bio</a>
     </header>`;
 }
 
