@@ -13,139 +13,139 @@
         <a href="shows.html">shows</a>
         <a href="bio.html">bio</a>
     </header>
-   <main>
-    <div id="featured-article"></div>
-</main>
+    <main>
+        <div id="featured-article"></div>
+    </main>
 
-<script>
-    // 1. Check screen width for resolution prefix
-    const isMobile = window.innerWidth <= 768;
-    const prefix = isMobile ? 'lo/' : 'hi/';
+    <script>
+        // 1. Check screen width for resolution prefix
+        const isMobile = window.innerWidth <= 768;
+        const prefix = isMobile ? 'lo/' : 'hi/';
 
-    // Helper to generate dynamic image arrays
-    function generateImages(template, maxCount, folderPrefix = prefix) {
-        const list = [];
-        for (let i = 1; i <= maxCount; i++) {
-            const paddedNum = String(i).padStart(2, '0');
-            list.push(`${folderPrefix}${template}${paddedNum}.jpg`);
+        // Helper to generate dynamic image arrays
+        function generateImages(template, maxCount, folderPrefix = prefix) {
+            const list = [];
+            for (let i = 1; i <= maxCount; i++) {
+                const paddedNum = String(i).padStart(2, '0');
+                list.push(`${folderPrefix}${template}${paddedNum}.jpg`);
+            }
+            return list;
         }
-        return list;
-    }
 
-    // 2. Combined pool of all articles from books.html and shows.html
-    const pool = [
-        // --- SHOWS ---
-        {
-            url: "piratesofthecarbombinfantry.html",
-            title: "Pirates of the Carbomb Infantry",
-            subtext: "2025",
-            images: generateImages("piratesofthecarbombinfantry-", 10)
-        },
-        {
-            url: "apartment-gallery.html",
-            title: "Apartment Gallery",
-            subtext: "2023",
-            images: generateImages("apartment-", 10)
-        },
-        {
-            url: "my-parents.html",
-            title: "My Parents",
-            subtext: "2017",
-            images: generateImages("myparents-", 7)
-        },
+        // 2. Combined pool of all articles from books.html and shows.html
+        const pool = [
+            // --- SHOWS ---
+            {
+                url: "piratesofthecarbombinfantry.html",
+                title: "Pirates of the Carbomb Infantry",
+                subtext: "2025",
+                images: generateImages("piratesofthecarbombinfantry-", 10)
+            },
+            {
+                url: "apartment-gallery.html",
+                title: "Apartment Gallery",
+                subtext: "2023",
+                images: generateImages("apartment-", 10)
+            },
+            {
+                url: "my-parents.html",
+                title: "My Parents",
+                subtext: "2017",
+                images: generateImages("myparents-", 7)
+            },
 
-        // --- BOOKS ---
-        {
-            url: "comics-youth-1.html",
-            title: "Comics Youth 1",
-            price: "$5",
-            buyUrl: "https://buy.stripe.com/28EeVdh0C8a5cloeYYbV63G",
-            images: ["lo/comics-youth-1.jpg"]
-        },
-        {
-            url: "comics-youth-2.html",
-            title: "Comics Youth 2",
-            price: "$5",
-            buyUrl: "https://buy.stripe.com/bJe8wP8u63TP0CG044bV63H",
-            images: ["lo/comics-youth-2.jpg"]
-        },
-        {
-            url: "altcomics-7.html",
-            title: "Altcomics 7",
-            price: "$7",
-            buyUrl: "https://buy.stripe.com/7sY9AT11Ecql99c2ccbV63I",
-            images: ["lo/altcomics-7.jpg"]
-        },
-        {
-            url: "2001.html",
-            title: "2001",
-            price: "$25",
-            buyUrl: "https://buy.stripe.com/28E5kD8u6fCxgBEdUUbV63J",
-            images: ["lo/2001.jpg"]
-        },
-        {
-            url: "mirror-mirror.html",
-            title: "Mirror Mirror",
-            price: "$28",
-            buyUrl: "https://buy.stripe.com/4gM9ATh0Ceyt2KOdUUbV63K",
-            images: ["lo/mirror-mirror.jpg"]
-        },
-        {
-            url: "the-whale.html",
-            title: "The Whale",
-            price: "$25",
-            buyUrl: "https://buy.stripe.com/eVqdR939M0HD5X0188bV63M",
-            images: ["lo/the-whale.jpg"]
-        },
-        {
-            url: "young-lions-artist-editions.html",
-            title: "Young Lions",
-            price: "$25",
-            browseUrl: "young-lions-artist-editions.html",
-            images: generateImages("young-lions-artist-edition-", 10)
-        },
-        {
-            url: "3-books-artist-editions.html",
-            title: "3 Books",
-            price: "$50-500",
-            browseUrl: "3-books-artist-editions.html",
-            images: generateImages("3-books-artist-edition-", 28)
+            // --- BOOKS ---
+            {
+                url: "comics-youth-1.html",
+                title: "Comics Youth 1",
+                price: "$5",
+                buyUrl: "https://buy.stripe.com/28EeVdh0C8a5cloeYYbV63G",
+                images: ["lo/comics-youth-1.jpg"]
+            },
+            {
+                url: "comics-youth-2.html",
+                title: "Comics Youth 2",
+                price: "$5",
+                buyUrl: "https://buy.stripe.com/bJe8wP8u63TP0CG044bV63H",
+                images: ["lo/comics-youth-2.jpg"]
+            },
+            {
+                url: "altcomics-7.html",
+                title: "Altcomics 7",
+                price: "$7",
+                buyUrl: "https://buy.stripe.com/7sY9AT11Ecql99c2ccbV63I",
+                images: ["lo/altcomics-7.jpg"]
+            },
+            {
+                url: "2001.html",
+                title: "2001",
+                price: "$25",
+                buyUrl: "https://buy.stripe.com/28E5kD8u6fCxgBEdUUbV63J",
+                images: ["lo/2001.jpg"]
+            },
+            {
+                url: "mirror-mirror.html",
+                title: "Mirror Mirror",
+                price: "$28",
+                buyUrl: "https://buy.stripe.com/4gM9ATh0Ceyt2KOdUUbV63K",
+                images: ["lo/mirror-mirror.jpg"]
+            },
+            {
+                url: "the-whale.html",
+                title: "The Whale",
+                price: "$25",
+                buyUrl: "https://buy.stripe.com/eVqdR939M0HD5X0188bV63M",
+                images: ["lo/the-whale.jpg"]
+            },
+            {
+                url: "young-lions-artist-editions.html",
+                title: "Young Lions",
+                price: "$25",
+                browseUrl: "young-lions-artist-editions.html",
+                images: generateImages("young-lions-artist-edition-", 10)
+            },
+            {
+                url: "3-books-artist-editions.html",
+                title: "3 Books",
+                price: "$50-500",
+                browseUrl: "3-books-artist-editions.html",
+                images: generateImages("3-books-artist-edition-", 28)
+            }
+        ];
+
+        // 3. Pick a random item from the pool
+        const selectedItem = pool[Math.floor(Math.random() * pool.length)];
+
+        // 4. Pick a random image for the selected item
+        const selectedImg = selectedItem.images[Math.floor(Math.random() * selectedItem.images.length)];
+
+        // 5. Construct HTML based on item type
+        let articleHTML = `<article id="index-image" data-url="${selectedItem.url}" style="width:fit-content">`;
+        articleHTML += `<img src="${selectedImg}">`;
+        articleHTML += `<p>${selectedItem.title}</p>`;
+
+        if (selectedItem.subtext) {
+            articleHTML += `<p>${selectedItem.subtext}</p>`;
         }
-    ];
 
-    // 3. Pick a random item from the pool
-    const selectedItem = pool[Math.floor(Math.random() * pool.length)];
+        if (selectedItem.price) {
+            articleHTML += `<p>${selectedItem.price}</p>`;
+        }
 
-    // 4. Pick a random image for the selected item
-    const selectedImg = selectedItem.images[Math.floor(Math.random() * selectedItem.images.length)];
+        if (selectedItem.buyUrl) {
+            articleHTML += `<a class="buy" href="${selectedItem.buyUrl}">BUY</a>`;
+        } else if (selectedItem.browseUrl) {
+            articleHTML += `<a class="buy" href="${selectedItem.browseUrl}">BROWSE</a>`;
+        }
 
-    // 5. Construct HTML based on item type
-    let articleHTML = `<article data-url="${selectedItem.url}" style="width:fit-content">`;
-    articleHTML += `<img src="${selectedImg}">`;
-    articleHTML += `<p>${selectedItem.title}</p>`;
+        articleHTML += `</article>`;
 
-    if (selectedItem.subtext) {
-        articleHTML += `<p>${selectedItem.subtext}</p>`;
-    }
-
-    if (selectedItem.price) {
-        articleHTML += `<p>${selectedItem.price}</p>`;
-    }
-
-    if (selectedItem.buyUrl) {
-        articleHTML += `<a class="buy" href="${selectedItem.buyUrl}">BUY</a>`;
-    } else if (selectedItem.browseUrl) {
-        articleHTML += `<a class="buy" href="${selectedItem.browseUrl}">BROWSE</a>`;
-    }
-
-    articleHTML += `</article>`;
-
-    // 6. Inject article into <main>
-    const container = document.getElementById('featured-article');
-    if (container) {
-        container.outerHTML = articleHTML;
-    }
-</script>
+        // 6. Inject article into <main>
+        const container = document.getElementById('featured-article');
+        if (container) {
+            container.outerHTML = articleHTML;
+        }
+    </script>
     <script>
         const books = document.querySelectorAll('article');
 
