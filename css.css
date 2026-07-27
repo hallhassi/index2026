@@ -67,8 +67,10 @@ article {
     padding: 1.5em 20px;
 }
 
-img {
-max-height: calc(100vh - 11em);
+@media (orientation: landscape) {
+    img {
+        max-height: calc(100vh - 11em);
+    }
 }
 
 article,
@@ -113,10 +115,10 @@ article.combo {
 }
 
 #bio {
-    font-family:monospace;
+    font-family: monospace;
     white-space: pre-wrap;
     text-align: left;
-    width:fit-content;
+    width: fit-content;
     margin: auto;
 }
 
