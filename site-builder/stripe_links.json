@@ -596,5 +596,44 @@
     "priceId": "price_1TubKQIgspzpJaLxixqswaH1",
     "paymentLinkId": "plink_1TubKRIgspzpJaLxYYW7mpaQ",
     "soldOut": false
+  },
+  "untitled-silkscreen-book-01": {
+    "slug": "untitled-silkscreen-book-01",
+    "name": "Untitled Silkscreened Book 01",
+    "price": 25,
+    "shippingTier": "heavy",
+    "imageUrl": "https://blaiselarmee.com/lo/untitled-silkscreen-book-01.jpg",
+    "dataUrl": "untitled-silkscreen-book-01.html",
+    "buyUrl": "https://buy.stripe.com/9B6dR9fWycql4SWdUUbV70i",
+    "productId": "prod_UyCnftIoBf5qLf",
+    "priceId": "price_1TyGNfIgspzpJaLxfEUtaSTl",
+    "paymentLinkId": "plink_1TyGNgIgspzpJaLxg5ZaHSxN",
+    "soldOut": false
+  },
+  "untitled-silkscreen-book-02": {
+    "slug": "untitled-silkscreen-book-02",
+    "name": "Untitled Silkscreened Book 02",
+    "price": 25,
+    "shippingTier": "heavy",
+    "imageUrl": "https://blaiselarmee.com/lo/untitled-silkscreen-book-02.jpg",
+    "dataUrl": "untitled-silkscreen-book-02.html",
+    "buyUrl": "https://buy.stripe.com/6oUeVd9ya8a51GKg32bV70j",
+    "productId": "prod_UyCnyRrG6Pb0Gp",
+    "priceId": "price_1TyGNgIgspzpJaLxsgbj0uGG",
+    "paymentLinkId": "plink_1TyGNhIgspzpJaLxewAPCRY2",
+    "soldOut": false
+  },
+  "untitled-silkscreen-book-03": {
+    "slug": "untitled-silkscreen-book-03",
+    "name": "Untitled Silkscreened Book 03",
+    "price": 25,
+    "shippingTier": "heavy",
+    "imageUrl": "https://blaiselarmee.com/lo/untitled-silkscreen-book-03.jpg",
+    "dataUrl": "untitled-silkscreen-book-03.html",
+    "buyUrl": "https://buy.stripe.com/5kQ8wPeSubmh1GKg32bV70k",
+    "productId": "prod_UyCne4qpDMKZ0t",
+    "priceId": "price_1TyGNhIgspzpJaLx44qHPuXU",
+    "paymentLinkId": "plink_1TyGNiIgspzpJaLxP2IDZDDY",
+    "soldOut": false
   }
 }

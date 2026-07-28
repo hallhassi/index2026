@@ -266,6 +266,21 @@ const editionSets = [
       { type: "blockquote", text: "\"3 Books (2015) disguises its author with inflated privilege, fame, controversies, art world money, before being called out 'in real life' by his publisher, two years later.\" Stephen Hayes" },
     ],
   },
+  {
+    id: "silkscreen",
+    slugPrefix: "untitled-silkscreen-book",
+    galleryFilename: "untitled-silkscreen-books.html",
+    title: "Untitled Silkscreen Books",
+    count: 3,
+    price: 25,
+    shippingTier: "heavy",
+    inventoryLimit: 1,
+    soldOut: [], // e.g. [3, 7] to mark copies 03 and 07 as sold
+    formatLine: (num, price) => `$${price}, 8.5 by 11 inches, self-published, 2012`,
+    galleryIntro: [
+      { type: "blockquote", text: "Made during my time at CCS." }
+    ],
+  }
 ];
 
 module.exports = { SITE_URL, shippingTiers, WORLD_COUNTRIES, books, combos, editionSets };

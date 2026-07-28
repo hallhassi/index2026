@@ -76,15 +76,23 @@
             <p>$50-500</p>
             <a class="buy" href="3-books-artist-editions.html">BROWSE</a>
         </article>
+
+        <article data-url="untitled-silkscreen-books.html">
+            <img id="random-2">
+            <p>Untitled Silkscreen Books</p>
+            <p>$25</p>
+            <a class="buy" href="untitled-silkscreen-books.html">BROWSE</a>
+        </article>
     </div>
 
     <script>
         const imageData = {
             set_young_lions: ["lo/young-lions-artist-edition-01.jpg","lo/young-lions-artist-edition-02.jpg","lo/young-lions-artist-edition-03.jpg","lo/young-lions-artist-edition-04.jpg","lo/young-lions-artist-edition-05.jpg","lo/young-lions-artist-edition-06.jpg","lo/young-lions-artist-edition-07.jpg","lo/young-lions-artist-edition-08.jpg","lo/young-lions-artist-edition-09.jpg","lo/young-lions-artist-edition-10.jpg"],
-            set_3_books: ["lo/3-books-artist-edition-01.jpg","lo/3-books-artist-edition-02.jpg","lo/3-books-artist-edition-03.jpg","lo/3-books-artist-edition-04.jpg","lo/3-books-artist-edition-05.jpg","lo/3-books-artist-edition-06.jpg","lo/3-books-artist-edition-07.jpg","lo/3-books-artist-edition-08.jpg","lo/3-books-artist-edition-09.jpg","lo/3-books-artist-edition-10.jpg","lo/3-books-artist-edition-11.jpg","lo/3-books-artist-edition-12.jpg","lo/3-books-artist-edition-13.jpg","lo/3-books-artist-edition-14.jpg","lo/3-books-artist-edition-15.jpg","lo/3-books-artist-edition-16.jpg","lo/3-books-artist-edition-17.jpg","lo/3-books-artist-edition-18.jpg","lo/3-books-artist-edition-19.jpg","lo/3-books-artist-edition-20.jpg","lo/3-books-artist-edition-21.jpg","lo/3-books-artist-edition-22.jpg","lo/3-books-artist-edition-23.jpg","lo/3-books-artist-edition-24.jpg","lo/3-books-artist-edition-25.jpg","lo/3-books-artist-edition-26.jpg","lo/3-books-artist-edition-27.jpg","lo/3-books-artist-edition-28.jpg"]
+            set_3_books: ["lo/3-books-artist-edition-01.jpg","lo/3-books-artist-edition-02.jpg","lo/3-books-artist-edition-03.jpg","lo/3-books-artist-edition-04.jpg","lo/3-books-artist-edition-05.jpg","lo/3-books-artist-edition-06.jpg","lo/3-books-artist-edition-07.jpg","lo/3-books-artist-edition-08.jpg","lo/3-books-artist-edition-09.jpg","lo/3-books-artist-edition-10.jpg","lo/3-books-artist-edition-11.jpg","lo/3-books-artist-edition-12.jpg","lo/3-books-artist-edition-13.jpg","lo/3-books-artist-edition-14.jpg","lo/3-books-artist-edition-15.jpg","lo/3-books-artist-edition-16.jpg","lo/3-books-artist-edition-17.jpg","lo/3-books-artist-edition-18.jpg","lo/3-books-artist-edition-19.jpg","lo/3-books-artist-edition-20.jpg","lo/3-books-artist-edition-21.jpg","lo/3-books-artist-edition-22.jpg","lo/3-books-artist-edition-23.jpg","lo/3-books-artist-edition-24.jpg","lo/3-books-artist-edition-25.jpg","lo/3-books-artist-edition-26.jpg","lo/3-books-artist-edition-27.jpg","lo/3-books-artist-edition-28.jpg"],
+            set_silkscreen: ["lo/untitled-silkscreen-book-01.jpg","lo/untitled-silkscreen-book-02.jpg","lo/untitled-silkscreen-book-03.jpg"]
         };
 
-        const imgTargets = [document.getElementById('random-0'), document.getElementById('random-1')];
+        const imgTargets = [document.getElementById('random-0'), document.getElementById('random-1'), document.getElementById('random-2')];
 
         if (imgTargets[0] && imageData.set_young_lions.length > 0) {
             const idx = Math.floor(Math.random() * imageData.set_young_lions.length);
@@ -93,6 +101,10 @@
         if (imgTargets[1] && imageData.set_3_books.length > 0) {
             const idx = Math.floor(Math.random() * imageData.set_3_books.length);
             imgTargets[1].src = imageData.set_3_books[idx];
+        }
+        if (imgTargets[2] && imageData.set_silkscreen.length > 0) {
+            const idx = Math.floor(Math.random() * imageData.set_silkscreen.length);
+            imgTargets[2].src = imageData.set_silkscreen[idx];
         }
 
         // Shuffle the gallery articles in place
