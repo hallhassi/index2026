@@ -32,9 +32,8 @@
             return list;
         }
 
-        // 2. Combined pool of all articles from books.html and shows.html
-        const pool = [
-            // --- SHOWS ---
+        // 2. Separate pools for SHOWS and BOOKS
+        const showsPool = [
             {
                 url: "piratesofthecarbombinfantry.html",
                 title: "Pirates of the Carbomb Infantry",
@@ -52,9 +51,10 @@
                 title: "My Parents",
                 subtext: "2017",
                 images: generateImages("myparents-", 7)
-            },
+            }
+        ];
 
-            // --- BOOKS ---
+        const booksPool = [
             {
                 url: "comics-youth-1.html",
                 title: "Comics Youth 1",
@@ -91,13 +91,6 @@
                 images: ["lo/mirror-mirror.jpg"]
             },
             {
-                url: "the-whale.html",
-                title: "The Whale",
-                price: "$25",
-                buyUrl: "https://buy.stripe.com/eVqdR939M0HD5X0188bV63M",
-                images: ["lo/the-whale.jpg"]
-            },
-            {
                 url: "young-lions-artist-editions.html",
                 title: "Young Lions",
                 price: "$25",
@@ -120,13 +113,17 @@
             }
         ];
 
-        // 3. Pick a random item from the pool
-        const selectedItem = pool[Math.floor(Math.random() * pool.length)];
+        // 3. Determine orientation and pick the appropriate pool
+        const isLandscape = window.innerWidth > window.innerHeight;
+        const selectedPool = isLandscape ? showsPool : booksPool;
 
-        // 4. Pick a random image for the selected item
+        // 4. Pick a random item from the active pool
+        const selectedItem = selectedPool[Math.floor(Math.random() * selectedPool.length)];
+
+        // 5. Pick a random image for the selected item
         const selectedImg = selectedItem.images[Math.floor(Math.random() * selectedItem.images.length)];
 
-        // 5. Construct HTML based on item type
+        // 6. Construct HTML based on item type
         let articleHTML = `<article id="index-image" data-url="${selectedItem.url}" style="width:fit-content">`;
         articleHTML += `<img src="${selectedImg}">`;
         articleHTML += `<p>${selectedItem.title}</p>`;
@@ -147,7 +144,7 @@
 
         articleHTML += `</article>`;
 
-        // 6. Inject article into <main>
+        // 7. Inject article into <main>
         const container = document.getElementById('featured-article');
         if (container) {
             container.outerHTML = articleHTML;
