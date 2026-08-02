@@ -408,17 +408,10 @@ const randomItem = iData[randomIndex];
 
 // 2. Target your elements
 const imgElement = document.getElementById('random');
-// Optional: Target the parent link if you want the random image to be clickable
-const linkElement = imgElement ? imgElement.parentElement : null; 
 
 // 3. Update the DOM
 if (imgElement && randomItem) {
     imgElement.src = randomItem.src;
-    
-    // If the image is inside an <a> tag, update its destination too
-    if (linkElement && linkElement.tagName === 'A') {
-        linkElement.href = randomItem.href;
-    }
 }
 </script>
 <script>
