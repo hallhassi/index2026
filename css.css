@@ -114,6 +114,25 @@ article.combo {
     margin: 0 auto;
 }
 
+.bio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bio h2 {
+    display: block;
+    margin: 8em 0;
+    flex: 0 0 100%;
+}
+
+.bio div {
+  flex: 1 1 200px;
+  min-width: 100px;
+  max-width: 300px;
+}
+
 #bio {
     font-family: monospace;
     white-space: pre-wrap;
@@ -127,9 +146,4 @@ blockquote a {
     display: inline;
     padding: 0;
     text-decoration: underline;
-}
-
-h2 {
-    display: block;
-    margin: 8em 0 8em 0;
 }
