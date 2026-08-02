@@ -32,8 +32,8 @@
             return list;
         }
 
-        // 2. Separate pools for SHOWS and BOOKS
-        const showsPool = [
+        // 2. Separate pools for LANDSCAPE and PORTRAIT/PROFILE orientation
+        const landscapePool = [
             {
                 url: "piratesofthecarbombinfantry.html",
                 title: "Pirates of the Carbomb Infantry",
@@ -51,10 +51,25 @@
                 title: "My Parents",
                 subtext: "2017",
                 images: generateImages("myparents-", 7)
+            },
+            {
+                url: "2001.html",
+                title: "2001",
+                price: "$25",
+                buyUrl: "https://buy.stripe.com/28E5kD8u6fCxgBEdUUbV63J",
+                images: [...generateImages("2001-", 91)]
             }
         ];
 
-        const booksPool = [
+        const portraitPool = [
+            ,
+            {
+                url: "2001.html",
+                title: "2001",
+                price: "$25",
+                buyUrl: "https://buy.stripe.com/28E5kD8u6fCxgBEdUUbV63J",
+                images: ["lo/2001.jpg"]
+            },
             {
                 url: "comics-youth-1.html",
                 title: "Comics Youth 1",
@@ -77,20 +92,6 @@
                 images: ["lo/altcomics-7.jpg"]
             },
             {
-                url: "2001.html",
-                title: "2001",
-                price: "$25",
-                buyUrl: "https://buy.stripe.com/28E5kD8u6fCxgBEdUUbV63J",
-                images: ["lo/2001.jpg"]
-            },
-            {
-                url: "mirror-mirror.html",
-                title: "Mirror Mirror",
-                price: "$28",
-                buyUrl: "https://buy.stripe.com/4gM9ATh0Ceyt2KOdUUbV63K",
-                images: ["lo/mirror-mirror.jpg"]
-            },
-            {
                 url: "young-lions-artist-editions.html",
                 title: "Young Lions",
                 price: "$25",
@@ -110,12 +111,19 @@
                 price: "$25",
                 browseUrl: "untitled-silkscreen-books.html",
                 images: generateImages("untitled-silkscreen-book-", 3)
+            },
+            {
+                url: "mirror-mirror.html",
+                title: "Mirror Mirror",
+                price: "$28",
+                buyUrl: "https://buy.stripe.com/4gM9ATh0Ceyt2KOdUUbV63K",
+                images: ["lo/mirror-mirror.jpg"]
             }
         ];
 
         // 3. Determine orientation and pick the appropriate pool
         const isLandscape = window.innerWidth > window.innerHeight;
-        const selectedPool = isLandscape ? showsPool : booksPool;
+        const selectedPool = isLandscape ? landscapePool : portraitPool;
 
         // 4. Pick a random item from the active pool
         const selectedItem = selectedPool[Math.floor(Math.random() * selectedPool.length)];
