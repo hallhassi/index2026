@@ -21,8 +21,9 @@
         <a href="bio.html">bio</a>
     </header>
     <h1 class="center">3 Books Artist Editions</h1>
-    <blockquote>Raighne gave me his last remaining copies of 3 Books. I modified them by gluing a drawing or print to the cover. Then I discarded the guts, leaving stiff, hollow shells. To scan them I inserted Atlantic Island by Tony Duvert.</blockquote>
-    <blockquote>"3 Books (2015) disguises its author with inflated privilege, fame, controversies, art world money, before being called out 'in real life' by his publisher, two years later." Stephen Hayes</blockquote>
+    <blockquote>Empty shell of a book with an image glued on top.</blockquote>
+    <blockquote>"3 Books (2015) disguises its author with inflated privilege, fame, controversies, art world money,
+        before being called out 'in real life' by his publisher, two years later." Stephen Hayes</blockquote>
     <div class="grid">
         <article data-url="3-books-artist-edition-01.html">
             <img src="lo/3-books-artist-edition-01.jpg">
@@ -147,7 +148,7 @@
             <img src="lo/3-books-artist-edition-18.jpg">
             <p>3 Books Artist Edition 18</p>
             <p>$50</p>
-            
+
         </article>
 
         <article data-url="3-books-artist-edition-19.html">
@@ -220,6 +221,24 @@
             <a class="buy" href="https://buy.stripe.com/8x29AT11Edupadg188bV70h">BUY</a>
         </article>
     </div>
+    <script>
+        function shuffleGrid() {
+            const grid = document.querySelector('.grid');
+            const articles = Array.from(grid.children);
+
+            // Fisher-Yates Shuffle Algorithm
+            for (let i = articles.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [articles[i], articles[j]] = [articles[j], articles[i]];
+            }
+
+            // Re-append items in the new shuffled order
+            articles.forEach(article => grid.appendChild(article));
+        }
+
+        // Run on page load or attach to a button click
+        shuffleGrid();
+    </script>
     <script>
         const books = document.querySelectorAll('article');
 

@@ -22,8 +22,12 @@
     </header>
     <h1 class="center">Young Lions Artist Editions</h1>
     <blockquote>The original book with a print glued to the cover.</blockquote>
-    <blockquote>"Everything in Larmee's work fufills Edward Gorey's belief that all great art is never about what it presents itself as. Here, in a 'debut' graphic novel published in 2010, the work appears to be a naturalistic cartoon novella, with highly accomplished but very contemporary drawing. The story can be enjoyed on those terms, or as a critical statement about the very idea of such a book." Austin English</blockquote>
-    <blockquote>"the story of a cadre of bored performance artists looking for a new inspiration, and finding it in the form of a fresh-faced young girl." Rob Clough</blockquote>
+    <blockquote>"Everything in Larmee's work fufills Edward Gorey's belief that all great art is never about what it
+        presents itself as. Here, in a 'debut' graphic novel published in 2010, the work appears to be a naturalistic
+        cartoon novella, with highly accomplished but very contemporary drawing. The story can be enjoyed on those
+        terms, or as a critical statement about the very idea of such a book." Austin English</blockquote>
+    <blockquote>"the story of a cadre of bored performance artists looking for a new inspiration, and finding it in the
+        form of a fresh-faced young girl." Rob Clough</blockquote>
     <div class="grid">
         <article data-url="young-lions-artist-edition-01.html">
             <img src="lo/young-lions-artist-edition-01.jpg">
@@ -95,6 +99,24 @@
             <a class="buy" href="https://buy.stripe.com/14A9AT39M8a52KO7wwbV63Y">BUY</a>
         </article>
     </div>
+    <script>
+        function shuffleGrid() {
+            const grid = document.querySelector('.grid');
+            const articles = Array.from(grid.children);
+
+            // Fisher-Yates Shuffle Algorithm
+            for (let i = articles.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [articles[i], articles[j]] = [articles[j], articles[i]];
+            }
+
+            // Re-append items in the new shuffled order
+            articles.forEach(article => grid.appendChild(article));
+        }
+
+        // Run on page load or attach to a button click
+        shuffleGrid();
+    </script>
     <script>
         const books = document.querySelectorAll('article');
 
