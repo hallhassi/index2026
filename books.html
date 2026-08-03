@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -17,90 +16,112 @@
 <body>
     <header>
         <a href="index.html">Blaise Larmee</a>
-        <a href="shows.html">shows</a>
         <h1>books</h1>
+        <a href="shows.html">shows</a>
         <a href="bio.html">bio</a>
     </header>
-    <div class="grid">
-        <article data-url="comics-youth-1.html">
-            <img src="lo/comics-youth-1.jpg">
-            <p>Comics Youth 1</p>
-        </article>
-
-        <article data-url="comics-youth-2.html">
-            <img src="lo/comics-youth-2.jpg">
-            <p>Comics Youth 2</p>
-        </article>
-
-        <article data-url="altcomics-7.html">
-            <img src="lo/altcomics-7.jpg">
-            <p>Altcomics 7</p>
-        </article>
-
-        <article data-url="2001.html">
-            <img src="lo/2001.jpg">
-            <p>2001</p>
-        </article>
-
-        <article data-url="mirror-mirror.html">
-            <img src="lo/mirror-mirror.jpg">
-            <p>Mirror Mirror</p>
-        </article>
-
-        <article data-url="the-whale.html">
-            <img src="lo/the-whale.jpg">
-            <p>The Whale</p>
-        </article>
-
-        <article data-url="young-lions-artist-editions.html">
-            <img id="random-0">
-            <p>Young Lions</p>
-        </article>
-
-        <article data-url="3-books-artist-editions.html">
-            <img id="random-1">
-            <p>3 Books</p>
-        </article>
-
-        <article data-url="untitled-silkscreen-books.html">
-            <img id="random-2">
-        </article>
-    </div>
-
+    <main class="grid"></main>
     <script>
-        const imageData = {
-            set_young_lions: ["lo/young-lions-artist-edition-01.jpg","lo/young-lions-artist-edition-02.jpg","lo/young-lions-artist-edition-03.jpg","lo/young-lions-artist-edition-04.jpg","lo/young-lions-artist-edition-05.jpg","lo/young-lions-artist-edition-06.jpg","lo/young-lions-artist-edition-07.jpg","lo/young-lions-artist-edition-08.jpg","lo/young-lions-artist-edition-09.jpg","lo/young-lions-artist-edition-10.jpg"],
-            set_3_books: ["lo/3-books-artist-edition-01.jpg","lo/3-books-artist-edition-02.jpg","lo/3-books-artist-edition-03.jpg","lo/3-books-artist-edition-04.jpg","lo/3-books-artist-edition-05.jpg","lo/3-books-artist-edition-06.jpg","lo/3-books-artist-edition-07.jpg","lo/3-books-artist-edition-08.jpg","lo/3-books-artist-edition-09.jpg","lo/3-books-artist-edition-10.jpg","lo/3-books-artist-edition-11.jpg","lo/3-books-artist-edition-12.jpg","lo/3-books-artist-edition-13.jpg","lo/3-books-artist-edition-14.jpg","lo/3-books-artist-edition-15.jpg","lo/3-books-artist-edition-16.jpg","lo/3-books-artist-edition-17.jpg","lo/3-books-artist-edition-18.jpg","lo/3-books-artist-edition-19.jpg","lo/3-books-artist-edition-20.jpg","lo/3-books-artist-edition-21.jpg","lo/3-books-artist-edition-22.jpg","lo/3-books-artist-edition-23.jpg","lo/3-books-artist-edition-24.jpg","lo/3-books-artist-edition-25.jpg","lo/3-books-artist-edition-26.jpg","lo/3-books-artist-edition-27.jpg","lo/3-books-artist-edition-28.jpg"],
-            set_silkscreen: ["lo/untitled-silkscreen-book-01.jpg","lo/untitled-silkscreen-book-02.jpg","lo/untitled-silkscreen-book-03.jpg"]
-        };
 
-        const imgTargets = [document.getElementById('random-0'), document.getElementById('random-1'), document.getElementById('random-2')];
+    </script>
+    <script>
 
-        if (imgTargets[0] && imageData.set_young_lions.length > 0) {
-            const idx = Math.floor(Math.random() * imageData.set_young_lions.length);
-            imgTargets[0].src = imageData.set_young_lions[idx];
-        }
-        if (imgTargets[1] && imageData.set_3_books.length > 0) {
-            const idx = Math.floor(Math.random() * imageData.set_3_books.length);
-            imgTargets[1].src = imageData.set_3_books[idx];
-        }
-        if (imgTargets[2] && imageData.set_silkscreen.length > 0) {
-            const idx = Math.floor(Math.random() * imageData.set_silkscreen.length);
-            imgTargets[2].src = imageData.set_silkscreen[idx];
-        }
+// Helper to generate dynamic image arrays
+function generateImages(template, maxCount, folderPrefix = 'lo/') {
+    const list = [];
+    for (let i = 1; i <= maxCount; i++) {
+        const paddedNum = String(i).padStart(2, '0');
+        list.push(`${folderPrefix}${template}${paddedNum}.jpg`);
+    }
+    return list;
+}
 
-        // Shuffle the gallery articles in place
-        (function() {
-            const grid = document.querySelector('div.grid');
-            if (grid) {
-                const articles = Array.from(grid.querySelectorAll('article'));
-                for (let i = articles.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [articles[i], articles[j]] = [articles[j], articles[i]];
-                }
-                articles.forEach(article => grid.appendChild(article));
-            }
-        })();
+// 2. Specific item pairs
+const itemPairs = [
+    [
+        {
+            url: "3-books-artist-editions.html",
+            title: "3 Books",
+            images: generateImages("3-books-artist-edition-", 28)
+        },
+        {
+            url: "young-lions-artist-editions.html",
+            title: "Young Lions",
+            images: generateImages("young-lions-artist-edition-", 10)
+        }
+    ],
+    [
+        {
+            url: "comics-youth-1.html",
+            title: "Comics Youth 1",
+            images: [`lo/comics-youth-1.jpg`]
+        },
+        {
+            url: "comics-youth-2.html",
+            title: "Comics Youth 2",
+            images: [`lo/comics-youth-2.jpg`]
+        }
+    ],
+    [
+        {
+            url: "2001.html",
+            title: "2001",
+            images: [`lo/2001.jpg`]
+        },
+        {
+            url: "mirror-mirror.html",
+            title: "Mirror Mirror",
+            images: [`lo/mirror-mirror.jpg`]
+        }
+    ],
+    [
+        {
+            url: "altcomics-7.html",
+            title: "Altcomics 7",
+            images: [`lo/altcomics-7.jpg`]
+        },
+        {
+            url: "jaywalk.html",
+            title: "Jaywalk",
+            images: [`lo/jaywalk.jpg`]
+        }
+    ],
+    [
+        {
+            url: "untitled-silkscreen-books.html",
+            title: "Untitled Silkscreen Books",
+            images: generateImages("untitled-silkscreen-book-", 3)
+        },
+        {
+            url: "the-whale.html",
+            title: "The Whale",
+            images: [`lo/the-whale.jpg`]
+        }
+    ]
+];
+
+// 3. Flatten pairs into ordered list
+const itemsList = itemPairs.flat();
+
+// 4. Construct markup for all items
+let articlesHTML = '';
+
+itemsList.forEach(item => {
+    const selectedImg = item.images[Math.floor(Math.random() * item.images.length)];
+    
+    articlesHTML += `
+        <article data-url="${item.url}">
+            <img src="${selectedImg}">
+            <p>${item.title}</p>
+        </article>
+    `;
+});
+
+// 5. Inject into main.grid inside body
+const gridContainer = document.querySelector('body > main.grid');
+if (gridContainer) {
+    gridContainer.innerHTML = articlesHTML;
+}
     </script>
     <script>
         const books = document.querySelectorAll('article');

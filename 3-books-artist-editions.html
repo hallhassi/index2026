@@ -13,26 +13,25 @@
     <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body>
+<body id="editions">
     <header>
         <a href="index.html">Blaise Larmee</a>
-        <a href="shows.html">shows</a>
         <a href="books.html">books</a>
+        <a href="shows.html">shows</a>
         <a href="bio.html">bio</a>
     </header>
-    <h1 class="center">3 Books Artist Editions</h1>
+    <h1>3 Books Artist Editions</h1>
+    <img id="random">
+    <blockquote>2dcloud hired me in 2014, published 3 Books in 2015, cancelled me in 2018, and gave me a couple dozen remaining copies of 3 Books (they'd destroyed the rest) in 2025. I glued images to the covers and got rid of the interiors.</p>
+    </blockquote>
     <script>
-        const imageData = {
-            set_artist_editions: ["lo/artist-editions-01.jpg", "lo/artist-editions-02.jpg", "lo/artist-editions-03.jpg", "lo/artist-editions-04.jpg", "lo/artist-editions-05.jpg", "lo/artist-editions-06.jpg", "lo/artist-editions-07.jpg", "lo/artist-editions-08.jpg", "lo/artist-editions-09.jpg", "lo/artist-editions-10.jpg"],
-        };
+        const randomNumber = Math.floor(Math.random() * 51) + 1;
+        const paddedNumber = String(randomNumber).padStart(2, '0');
+        const img = document.getElementById('random');
 
-        const imgTargets = [document.getElementById('random-0'), document.getElementById('random-1')];
-
-        if (imgTargets[0] && imageData.set_artist_editions.length > 0) {
-            const idx = Math.floor(Math.random() * imageData.set_artist_editions.length);
-            imgTargets[0].src = imageData.set_artist_editions[idx];
+        if (img) {
+            img.src = `hi/3-books-artist-editions-highlights-${paddedNumber}.jpg`;
         }
-
     </script>
     <div class="grid">
         <article data-url="3-books-artist-edition-01.html">

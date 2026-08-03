@@ -16,22 +16,20 @@
 <body id="book">
     <header>
         <a href="index.html">Blaise Larmee</a>
-        <a href="shows.html">shows</a>
         <a href="books.html">books</a>
+        <a href="shows.html">shows</a>
         <a href="bio.html">bio</a>
     </header>
     <main>
         <h1>Jaywalk</h1>
+        <img id="random-one" class="big">
         <p>$15, 116 page anthology featuring 14 pages by Blaise Larmee, 8 by 11 inches, Domino Books, 2025</p>
         <a class="buy" href="https://buy.stripe.com/bJedR9cKm3TP1GKaIIbV63L">BUY</a>
-        <p>6 page comic</p>
-        <img id="random-one">
-        <p>8 page comic</p>
-        <img id="random-two">
+        <img src="hi/jaywalk.jpg">
     </main>
 
     <script>
-        const pools = [["hi/jaywalk-01.jpg","hi/jaywalk-02.jpg","hi/jaywalk-03.jpg"],["hi/jaywalk-04.jpg","hi/jaywalk-05.jpg","hi/jaywalk-06.jpg","hi/jaywalk-07.jpg"]];
+        const pools = [["hi/jaywalk-01.jpg","hi/jaywalk-02.jpg","hi/jaywalk-03.jpg","hi/jaywalk-04.jpg","hi/jaywalk-05.jpg","hi/jaywalk-06.jpg","hi/jaywalk-07.jpg"]];
         const imgTargets = [document.getElementById('random-one'), document.getElementById('random-two')];
 
         if (imgTargets[0] && pools[0].length > 0) {
