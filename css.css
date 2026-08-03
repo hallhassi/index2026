@@ -27,10 +27,6 @@ body {
     text-align: center;
 }
 
-header {
-    text-align: left;
-}
-
 #bio,
 blockquote {
     line-height: 1.5em;
@@ -38,6 +34,10 @@ blockquote {
 
 blockquote {
     margin: 1em 30px;
+}
+
+header {
+    text-align: left;
 }
 
 header>a,
@@ -86,12 +86,8 @@ a.buy {
 
 main>a.buy {
     padding: 1em 30px;
-    margin: 8em auto 11em auto;
+    margin: 4em auto 5em auto;
     width: fit-content;
-}
-
-main h1 {
-    margin: 3em auto 8em auto;
 }
 
 main>img {
@@ -100,6 +96,10 @@ main>img {
 
 main>img:first-of-type {
     max-width: 50%;
+}
+
+main>img.big:first-of-type {
+    max-width: 100%;
 }
 
 article.combo {
@@ -130,7 +130,7 @@ article.combo {
 .bio div {
   flex: 1 1 200px;
   min-width: 100px;
-  max-width: 300px;
+  max-width: 800px;
 }
 
 #bio {
