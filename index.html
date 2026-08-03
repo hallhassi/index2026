@@ -62,7 +62,7 @@
         ];
 
         const portraitPool = [
-            ,
+            
             {
                 url: "2001.html",
                 title: "2001",
@@ -96,21 +96,21 @@
                 title: "Young Lions",
                 price: "$25",
                 browseUrl: "young-lions-artist-editions.html",
-                images: generateImages("young-lions-artist-edition-", 10)
+                images: [...generateImages("young-lions-artist-edition-", 10)]
             },
             {
                 url: "3-books-artist-editions.html",
                 title: "3 Books",
                 price: "$50-500",
                 browseUrl: "3-books-artist-editions.html",
-                images: generateImages("3-books-artist-edition-", 3)
+                images: [...generateImages("3-books-artist-edition-", 28)]
             },
             {
                 url: "untitled-silkscreen-books.html",
                 title: "Untitled Silkscreen Books",
                 price: "$25",
                 browseUrl: "untitled-silkscreen-books.html",
-                images: generateImages("untitled-silkscreen-book-", 3)
+                images: [...generateImages("untitled-silkscreen-book-", 3)]
             },
             {
                 url: "mirror-mirror.html",
