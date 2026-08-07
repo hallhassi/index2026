@@ -64,6 +64,24 @@
         const portraitPool = [
             
             {
+                url: "apartment-gallery.html",
+                title: "Apartment Gallery",
+                subtext: "2023",
+                images: generateImages("apartment-", 10)
+            },
+            {
+                url: "my-parents.html",
+                title: "My Parents",
+                subtext: "2017",
+                images: generateImages("myparents-", 7)
+            },
+            {
+                url: "2001.html",
+                title: "2001",
+                price: "$25",
+                buyUrl: "https://buy.stripe.com/28E5kD8u6fCxgBEdUUbV63J",
+                images: [...generateImages("2001-", 91)]
+            },{
                 url: "2001.html",
                 title: "2001",
                 price: "$25",
@@ -106,13 +124,6 @@
                 images: [...generateImages("3-books-artist-edition-", 28)]
             },
             {
-                url: "young-lions-artist-editions.html",
-                title: "Young Lions",
-                price: "$25",
-                browseUrl: "young-lions-artist-editions.html",
-                images: [...generateImages("young-lions-artist-editions-highlights-", 4)]
-            },
-            {
                 url: "untitled-silkscreen-books.html",
                 title: "Untitled Silkscreen Books",
                 price: "$25",
@@ -142,21 +153,6 @@
         let articleHTML = `<article id="index-image" data-url="${selectedItem.url}" style="width:fit-content">`;
         articleHTML += `<img src="${selectedImg}">`;
         articleHTML += `<p>${selectedItem.title}</p>`;
-
-        if (selectedItem.subtext) {
-            articleHTML += `<p>${selectedItem.subtext}</p>`;
-        }
-
-        if (selectedItem.price) {
-            articleHTML += `<p>${selectedItem.price}</p>`;
-        }
-
-        if (selectedItem.buyUrl) {
-            articleHTML += `<a class="buy" href="${selectedItem.buyUrl}">BUY</a>`;
-        } else if (selectedItem.browseUrl) {
-            articleHTML += `<a class="buy" href="${selectedItem.browseUrl}">BROWSE</a>`;
-        }
-
         articleHTML += `</article>`;
 
         // 7. Inject article into <main>
