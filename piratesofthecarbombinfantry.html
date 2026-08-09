@@ -14,11 +14,12 @@
         <a href="bio.html">bio</a>
     </header>
     <main>
-        <h1>Blaise's Show at Pirates of the Carbomb Infantry</h1>
+        <h1>Pirates of the Carbomb Infantry</h1>
         <img id="random">
         <blockquote>
             "Hito's show was very good. Over a 10 minute rant the performer linked together Georgia Alliata's POCBI selfie exhibit, Guzzler, bad Jake Shore work, and her own theoretical oeuvre. These social games of in-jokes, forgery, and trolling are the same strategies the Real Fine Arts artists were playing with Network Painting in the early 2010's (I use Network Painting from Jana Euler, in how she uses for self/scene-referentiality in her work. Later it was used by Zach Feuer gallery in NYC for the show Context Message, curated by Real Fine Arts.) We are interested in not big or small, but a familial conversation. Everyone points up to their big sister and makes mocking face. That is a part of family love." Pirates of the Carbomb Infantry
         </blockquote>
+        <img id="random">
         <a class="buy" href="https://www.instagram.com/stories/highlights/18065215226652086/">VIEW ON INSTAGRAM</a>
     </main>
     <script>
@@ -42,27 +43,45 @@
         ];
 
         // --- DOM Manipulation Logic (Unchanged) ---
+// 1. Target elements
+const imgElementOne = document.getElementById('random');
+const imgElementTwo = document.getElementById('random2');
 
-        // 1. Pick a random object from the main array
-        const randomIndex = Math.floor(Math.random() * imageData.length);
-        const randomItem = imageData[randomIndex];
+const linkElementOne = imgElementOne ? imgElementOne.parentElement : null;
+const linkElementTwo = imgElementTwo ? imgElementTwo.parentElement : null;
 
-        // 2. Target your elements
-        const imgElement = document.getElementById('random');
-        const linkElement = imgElement ? imgElement.parentElement : null;
+if (imageData.length > 0) {
+    // 2. Pick two distinct indices from imageData
+    const firstIdx = Math.floor(Math.random() * imageData.length);
+    let secondIdx = firstIdx;
 
-        // 3. Update the DOM
-        if (imgElement && randomItem) {
-            // A. Pick a random image from the "hrefs" array of this specific item
-            const randomHrefsIndex = Math.floor(Math.random() * randomItem.hrefs.length);
-            const randomImageSrc = randomItem.hrefs[randomHrefsIndex];
+    if (imageData.length > 1) {
+        do {
+            secondIdx = Math.floor(Math.random() * imageData.length);
+        } while (secondIdx === firstIdx);
+    }
 
-            // B. Update the <img> tag's src attribute with the image path
-            imgElement.src = randomImageSrc;
+    const itemOne = imageData[firstIdx];
+    const itemTwo = imageData[secondIdx];
 
-            // C. If the image is inside an <a> tag, update its destination to the page URL ("src")
-            if (linkElement && linkElement.tagName === 'A') {
-                linkElement.href = randomItem.src;
-            }
+    // 3. Update the first image & link
+    if (imgElementOne && itemOne && itemOne.hrefs.length > 0) {
+        const randomHrefsIndex = Math.floor(Math.random() * itemOne.hrefs.length);
+        imgElementOne.src = itemOne.hrefs[randomHrefsIndex];
+
+        if (linkElementOne && linkElementOne.tagName === 'A') {
+            linkElementOne.href = itemOne.src;
         }
+    }
+
+    // 4. Update the second image & link
+    if (imgElementTwo && itemTwo && itemTwo.hrefs.length > 0) {
+        const randomHrefsIndex = Math.floor(Math.random() * itemTwo.hrefs.length);
+        imgElementTwo.src = itemTwo.hrefs[randomHrefsIndex];
+
+        if (linkElementTwo && linkElementTwo.tagName === 'A') {
+            linkElementTwo.href = itemTwo.src;
+        }
+    }
+}
     </script>
