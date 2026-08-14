@@ -26,10 +26,11 @@
     </script>
     <script>
 
-// Helper to generate dynamic image arrays
-function generateImages(template, maxCount, folderPrefix = 'lo/') {
+// Helper to generate dynamic image arrays with exclusions
+function generateImages(template, maxCount, exclude = [], folderPrefix = 'lo/') {
     const list = [];
     for (let i = 1; i <= maxCount; i++) {
+        if (exclude.includes(i)) continue;
         const paddedNum = String(i).padStart(2, '0');
         list.push(`${folderPrefix}${template}${paddedNum}.jpg`);
     }
@@ -42,24 +43,12 @@ const itemPairs = [
         {
             url: "3-books-artist-editions.html",
             title: "3 Books",
-            images: generateImages("3-books-artist-edition-", 28)
+            images: generateImages("3-books-artist-edition-", 28, [5, 7, 13, 20, 24, 28])
         },
         {
             url: "young-lions-artist-editions.html",
             title: "Young Lions",
             images: [`lo/young-lions-artist-edition-07.jpg`]
-        }
-    ],
-    [
-        {
-            url: "comics-youth-1.html",
-            title: "Comics Youth 1",
-            images: [`lo/comics-youth-1.jpg`]
-        },
-        {
-            url: "comics-youth-2.html",
-            title: "Comics Youth 2",
-            images: [`lo/comics-youth-2.jpg`]
         }
     ],
     [

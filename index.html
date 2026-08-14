@@ -18,7 +18,7 @@
     </main>
 
     <script>
-        // 1. Check screen width for resolution prefix
+// 1. Check screen width for resolution prefix
         const isMobile = window.innerWidth <= 768;
         const prefix = isMobile ? 'lo/' : 'hi/';
 
@@ -121,7 +121,7 @@
                 title: "3 Books",
                 price: "$50-500",
                 browseUrl: "3-books-artist-editions.html",
-                images: [...generateImages("3-books-artist-edition-", 28)]
+                images: generateImages("3-books-artist-edition-", 28).filter((_, idx) => !([5, 7, 13, 20, 24, 28].includes(idx + 1)))
             },
             {
                 url: "untitled-silkscreen-books.html",
