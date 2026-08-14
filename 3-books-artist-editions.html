@@ -31,10 +31,33 @@
         const paddedNumber = String(randomNumber).padStart(2, '0');
         const img = document.getElementById('random');
 
-        if (img) {
+        if (img && (randomNumber < 47 || randomNumber > 49)) {
             img.src = `hi/3-books-artist-editions-highlights-${paddedNumber}.jpg`;
         }
-    </script>
+
+function setRandomImage() {
+    let randomNumber;
+    
+    // Pick a random number 1-51, skipping 47-49
+    do {
+        randomNumber = Math.floor(Math.random() * 51) + 1;
+    } while (randomNumber >= 47 && randomNumber <= 49);
+
+    const paddedNumber = String(randomNumber).padStart(2, '0');
+    img.src = `hi/3-books-artist-editions-highlights-${paddedNumber}.jpg`;
+}
+
+if (img) {
+    // Set cursor to pointer and add rounded corners
+    img.style.cursor = 'pointer';
+    img.style.borderRadius = '8px';
+
+    // Set initial random image on load
+    setRandomImage();
+
+    // Change image whenever it's clicked
+    img.addEventListener('click', setRandomImage);
+}        </script>
     <div class="grid">
         <article data-url="3-books-artist-edition-01.html">
             <img src="lo/3-books-artist-edition-01.jpg">
@@ -52,17 +75,9 @@
             <img src="lo/3-books-artist-edition-04.jpg">
             04
         </article>
-        <article data-url="3-books-artist-edition-05.html">
-            <img src="lo/3-books-artist-edition-05.jpg">
-            05
-        </article>
         <article data-url="3-books-artist-edition-06.html">
             <img src="lo/3-books-artist-edition-06.jpg">
             06
-        </article>
-        <article data-url="3-books-artist-edition-07.html">
-            <img src="lo/3-books-artist-edition-07.jpg">
-            07
         </article>
         <article data-url="3-books-artist-edition-08.html">
             <img src="lo/3-books-artist-edition-08.jpg">
@@ -83,10 +98,6 @@
         <article data-url="3-books-artist-edition-12.html">
             <img src="lo/3-books-artist-edition-12.jpg">
             12
-        </article>
-        <article data-url="3-books-artist-edition-13.html">
-            <img src="lo/3-books-artist-edition-13.jpg">
-            13
         </article>
         <article data-url="3-books-artist-edition-14.html">
             <img src="lo/3-books-artist-edition-14.jpg">
@@ -112,10 +123,6 @@
             <img src="lo/3-books-artist-edition-19.jpg">
             19
         </article>
-        <article data-url="3-books-artist-edition-20.html">
-            <img src="lo/3-books-artist-edition-20.jpg">
-            20
-        </article>
         <article data-url="3-books-artist-edition-21.html">
             <img src="lo/3-books-artist-edition-21.jpg">
             21
@@ -127,10 +134,6 @@
         <article data-url="3-books-artist-edition-23.html">
             <img src="lo/3-books-artist-edition-23.jpg">
             23
-        </article>
-        <article data-url="3-books-artist-edition-24.html">
-            <img src="lo/3-books-artist-edition-24.jpg">
-            24
         </article>
         <article data-url="3-books-artist-edition-25.html">
             <img src="lo/3-books-artist-edition-25.jpg">
@@ -144,10 +147,7 @@
             <img src="lo/3-books-artist-edition-27.jpg">
             27
         </article>
-        <article data-url="3-books-artist-edition-28.html">
-            <img src="lo/3-books-artist-edition-28.jpg">
-            28
-        </article>    </div>
+</div>
     <script>
         function shuffleGrid() {
             const grid = document.querySelector('.grid');
@@ -164,7 +164,6 @@
         }
 
         // Run on page load or attach to a button click
-        shuffleGrid();
     </script>
     <script>
         const books = document.querySelectorAll('article');
