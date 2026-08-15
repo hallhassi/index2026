@@ -13,19 +13,10 @@
     <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body id="editions">
-    <header>
-        <a href="index.html">Blaise Larmee</a>
-        <a href="books.html">books</a>
-        <a href="shows.html">shows</a>
-        <a href="bio.html">bio</a>
-    </header>
+<body>
     <h1>3 Books Artist Editions</h1>
     <img id="random">
-    <blockquote>I glued a picture to the cover and got rid of the insides.
-    </blockquote>
-    <blockquote>"When you first open Blaise Larmee's 3 Books you feel the spine crack. Adhesive separates and an unfamiliar noise from a new book is made. The cover and spine fold out as one single entity. You are left feeling like you broke your copy based on the first physical touch laid upon it.  The thought that the book is so fragile an object of art that even opening it is enough to cause the book to self-destruct in your hands rings through your head, and then you look at the nakedness of the spine and sense that their is a purpose behind this break." Shawn Starr
-    </blockquote>
+    <blockquote>I glued a picture to the cover and got rid of the insides.</blockquote>
     <script>
         const randomNumber = Math.floor(Math.random() * 51) + 1;
         const paddedNumber = String(randomNumber).padStart(2, '0');
@@ -35,29 +26,28 @@
             img.src = `hi/3-books-artist-editions-highlights-${paddedNumber}.jpg`;
         }
 
-function setRandomImage() {
-    let randomNumber;
-    
-    // Pick a random number 1-51, skipping 47-49
-    do {
-        randomNumber = Math.floor(Math.random() * 51) + 1;
-    } while (randomNumber >= 47 && randomNumber <= 49);
+        function setRandomImage() {
+            let randomNumber;
 
-    const paddedNumber = String(randomNumber).padStart(2, '0');
-    img.src = `hi/3-books-artist-editions-highlights-${paddedNumber}.jpg`;
-}
+            // Pick a random number 1-51, skipping 47-49
+            do {
+                randomNumber = Math.floor(Math.random() * 51) + 1;
+            } while (randomNumber >= 47 && randomNumber <= 49);
 
-if (img) {
-    // Set cursor to pointer and add rounded corners
-    img.style.cursor = 'pointer';
-    img.style.borderRadius = '8px';
+            const paddedNumber = String(randomNumber).padStart(2, '0');
+            img.src = `hi/3-books-artist-editions-highlights-${paddedNumber}.jpg`;
+        }
 
-    // Set initial random image on load
-    setRandomImage();
+        if (img) {
+            // Set cursor to pointer and add rounded corners
+            img.style.cursor = 'pointer';
 
-    // Change image whenever it's clicked
-    img.addEventListener('click', setRandomImage);
-}        </script>
+            // Set initial random image on load
+            setRandomImage();
+
+            // Change image whenever it's clicked
+            img.addEventListener('click', setRandomImage);
+        }        </script>
     <div class="grid">
         <article data-url="3-books-artist-edition-01.html">
             <img src="lo/3-books-artist-edition-01.jpg">
@@ -87,67 +77,15 @@ if (img) {
             <img src="lo/3-books-artist-edition-09.jpg">
             09
         </article>
-        <article data-url="3-books-artist-edition-10.html">
-            <img src="lo/3-books-artist-edition-10.jpg">
-            10
-        </article>
-        <article data-url="3-books-artist-edition-11.html">
-            <img src="lo/3-books-artist-edition-11.jpg">
-            11
-        </article>
-        <article data-url="3-books-artist-edition-12.html">
-            <img src="lo/3-books-artist-edition-12.jpg">
-            12
-        </article>
-        <article data-url="3-books-artist-edition-14.html">
-            <img src="lo/3-books-artist-edition-14.jpg">
-            14
-        </article>
-        <article data-url="3-books-artist-edition-15.html">
-            <img src="lo/3-books-artist-edition-15.jpg">
-            15
-        </article>
-        <article data-url="3-books-artist-edition-16.html">
-            <img src="lo/3-books-artist-edition-16.jpg">
-            16
-        </article>
-        <article data-url="3-books-artist-edition-17.html">
-            <img src="lo/3-books-artist-edition-17.jpg">
-            17
-        </article>
-        <article data-url="3-books-artist-edition-18.html">
-            <img src="lo/3-books-artist-edition-18.jpg">
-            18
-        </article>
-        <article data-url="3-books-artist-edition-19.html">
-            <img src="lo/3-books-artist-edition-19.jpg">
-            19
-        </article>
-        <article data-url="3-books-artist-edition-21.html">
-            <img src="lo/3-books-artist-edition-21.jpg">
-            21
-        </article>
-        <article data-url="3-books-artist-edition-22.html">
-            <img src="lo/3-books-artist-edition-22.jpg">
-            22
-        </article>
-        <article data-url="3-books-artist-edition-23.html">
-            <img src="lo/3-books-artist-edition-23.jpg">
-            23
-        </article>
-        <article data-url="3-books-artist-edition-25.html">
-            <img src="lo/3-books-artist-edition-25.jpg">
-            25
-        </article>
-        <article data-url="3-books-artist-edition-26.html">
-            <img src="lo/3-books-artist-edition-26.jpg">
-            26
-        </article>
-        <article data-url="3-books-artist-edition-27.html">
-            <img src="lo/3-books-artist-edition-27.jpg">
-            27
-        </article>
-</div>
+
+    </div>
+    <header>
+        <a href="index.html">Blaise Larmee</a>
+        <a href="books.html">books</a>
+        <a href="shows.html">shows</a>
+        <a href="bio.html">bio</a>
+    </header>
+
     <script>
         function shuffleGrid() {
             const grid = document.querySelector('.grid');
@@ -162,6 +100,7 @@ if (img) {
             // Re-append items in the new shuffled order
             articles.forEach(article => grid.appendChild(article));
         }
+         shuffleGrid() 
 
         // Run on page load or attach to a button click
     </script>
