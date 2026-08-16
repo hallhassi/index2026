@@ -24,9 +24,19 @@ body {
     margin: 1em 1em 8em 1em;
     line-height: 1.5em;
     background-color: #ff0000;
-    background-color: color(display-p3 1 0 0);
-    background-color: color(rec2020 1 0 0);
     text-align: center;
+}
+
+@supports (color: color(display-p3 1 0 0)) {
+    body {
+        background-color: color(display-p3 1 0 0);
+    }
+}
+
+@supports (color: color(rec2020 1 0 0)) {
+    body {
+        background-color: color(rec2020 1 0 0);
+    }
 }
 
 body>* {
