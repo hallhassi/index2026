@@ -14,9 +14,62 @@
 </head>
 
 <body>
-    <h1>3 Books Artist Editions</h1>
-    <img id="random">
-    <blockquote>I glued a picture to the cover and got rid of the insides.</blockquote>
+    <a href="index.html">Blaise Larmee</a>
+    
+    <article><img id="random"><h1>3 Books Artist Editions</h1></article>
+    <blockquote>"When you first open Blaise Larmee's 3 Books you feel the spine crack. Adhesive separates and an
+        unfamiliar noise from a new book is made. The cover and spine fold out as one single entity. You are left
+        feeling like you broke your copy based on the first physical touch laid upon it. The thought that the book is so
+        fragile an object of art that even opening it is enough to cause the book to self-destruct in your hands rings
+        through your head, and then you look at the nakedness of the spine and sense that their is a purpose behind this
+        break." Shawn Starr</blockquote>
+    <blockquote>"3 Books (2015) disguises its author with inflated privilege, fame, controversies, art world money,
+        before being called out 'in real life' by his publisher, two years later. 3 Books unsold copies were pulped and the label restructured. The new head publisher - a college student - resigned within two weeks; citing stress and suicidal thoughts." Stephen Hayes</blockquote>
+    <div class="index">
+
+        <article data-url="3-books-artist-edition-01.html">
+            <img src="lo/3-books-artist-edition-01.jpg">
+            <p>01</p>
+            <p>$500</p>
+            <a href="https://buy.stripe.com/aFafZh5hU761gBE2ccbV63Z">BUY</a>
+        </article>
+        <article data-url="3-books-artist-edition-02.html">
+            <img src="lo/3-books-artist-edition-02.jpg">
+            <p>02</p>
+            <p>$250</p>
+            <a href="https://buy.stripe.com/4gM14n11E2PL7145oobV640">BUY</a>
+        </article>
+        <article data-url="3-books-artist-edition-03.html">
+            <img src="lo/3-books-artist-edition-03.jpg">
+            <p>03</p>
+            <p>$200</p>
+            <a href="https://buy.stripe.com/8x2eVd4dQ0HD5X0bMMbV641">BUY</a>
+        </article>
+        <article data-url="3-books-artist-edition-04.html">
+            <img src="lo/3-books-artist-edition-04.jpg">
+            <p>04</p>
+            <p>$150</p>
+            <a href="https://buy.stripe.com/5kQ4gz4dQaid4SWg32bV642">BUY</a>
+        </article>
+        <article data-url="3-books-artist-edition-06.html">
+            <img src="lo/3-books-artist-edition-06.jpg">
+            <p>06</p>
+            <p>$150</p>
+            <a href="https://buy.stripe.com/5kQ4gz25IcqlbhkeYYbV644">BUY</a>
+        </article>
+        <article data-url="3-books-artist-edition-08.html">
+            <img src="lo/3-books-artist-edition-08.jpg">
+            <p>08</p>
+            <p>$150</p>
+            <a href="https://buy.stripe.com/eVq7sLh0C2PL8582ccbV646">BUY</a>
+        </article>
+        <article data-url="3-books-artist-edition-09.html">
+            <img src="lo/3-books-artist-edition-09.jpg">
+            <p>09</p>
+            <p>$150</p>
+            <a href="https://buy.stripe.com/8x29ATfWybmh5X0188bV647">BUY</a>
+        </article>
+    </div>
     <script>
         const randomNumber = Math.floor(Math.random() * 51) + 1;
         const paddedNumber = String(randomNumber).padStart(2, '0');
@@ -47,45 +100,8 @@
 
             // Change image whenever it's clicked
             img.addEventListener('click', setRandomImage);
-        }        </script>
-    <div class="grid">
-        <article data-url="3-books-artist-edition-01.html">
-            <img src="lo/3-books-artist-edition-01.jpg">
-            01
-        </article>
-        <article data-url="3-books-artist-edition-02.html">
-            <img src="lo/3-books-artist-edition-02.jpg">
-            02
-        </article>
-        <article data-url="3-books-artist-edition-03.html">
-            <img src="lo/3-books-artist-edition-03.jpg">
-            03
-        </article>
-        <article data-url="3-books-artist-edition-04.html">
-            <img src="lo/3-books-artist-edition-04.jpg">
-            04
-        </article>
-        <article data-url="3-books-artist-edition-06.html">
-            <img src="lo/3-books-artist-edition-06.jpg">
-            06
-        </article>
-        <article data-url="3-books-artist-edition-08.html">
-            <img src="lo/3-books-artist-edition-08.jpg">
-            08
-        </article>
-        <article data-url="3-books-artist-edition-09.html">
-            <img src="lo/3-books-artist-edition-09.jpg">
-            09
-        </article>
-
-    </div>
-    <header>
-        <a href="index.html">Blaise Larmee</a>
-        <a href="books.html">books</a>
-        <a href="shows.html">shows</a>
-        <a href="bio.html">bio</a>
-    </header>
-
+        }        
+    </script>
     <script>
         function shuffleGrid() {
             const grid = document.querySelector('.grid');
@@ -100,7 +116,7 @@
             // Re-append items in the new shuffled order
             articles.forEach(article => grid.appendChild(article));
         }
-         shuffleGrid() 
+        shuffleGrid()
 
         // Run on page load or attach to a button click
     </script>

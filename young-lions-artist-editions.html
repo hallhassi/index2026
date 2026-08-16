@@ -14,25 +14,48 @@
 </head>
 
 <body>
-    <h1>Young Lions Artist Editions</h1>
-    <img src="hi/young-lions-artist-editions-highlights-03.jpg">
+    <a href="index.html">Blaise Larmee</a>
+    <article>
+        <img id="random">
+        <h1>Young Lions Artist Editions</h1>
+    </article>
+
     <blockquote>"the story of a cadre of bored performance artists looking for a new inspiration, and finding it in the
         form of a fresh-faced young girl." Rob Clough</blockquote>
-    <div class="grid">
+    <div class="index">
 
         <article data-url="young-lions-artist-edition-07.html">
             <img src="lo/young-lions-artist-edition-07.jpg">
-            07
+            <p>07</p>
+            <p>$25</p>
+            <a href="https://buy.stripe.com/14A7sL5hUbmh1GK188bV63V">BUY</a>
         </article>
 
     </div>
-    <header>
-        <a href="index.html">Blaise Larmee</a>
-        <a href="books.html">books</a>
-        <a href="shows.html">shows</a>
-        <a href="bio.html">bio</a>
-    </header>
+    <script>
+        function getRandomNumber(current) {
+            let next;
+            do {
+                // Generates a random integer from 2 to 4 inclusive
+                next = Math.floor(Math.random() * 3) + 2;
+            } while (next === current);
+            return next;
+        }
 
+        const img = document.getElementById('random');
+        let currentNumber = null;
+
+        function setRandomImage() {
+            currentNumber = getRandomNumber(currentNumber);
+            const paddedNumber = String(currentNumber).padStart(2, '0');
+            img.src = `hi/young-lions-artist-editions-highlights-${paddedNumber}.jpg`;
+        }
+
+        if (img) {
+            setRandomImage();
+            img.addEventListener('click', setRandomImage);
+        }
+    </script>
     <script>
         function shuffleGrid() {
             const grid = document.querySelector('.grid');

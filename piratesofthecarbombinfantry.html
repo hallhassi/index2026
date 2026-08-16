@@ -6,26 +6,28 @@
     <link rel="stylesheet" href="css.css">
 </head>
 
-<body id="show">
-    
-        <h1>Pirates of the Carbomb Infantry</h1>
+<body>
+    <a href="index.html">Blaise Larmee</a>
+    <div class="article">
         <img id="random">
-        <a href="https://www.instagram.com/stories/highlights/18065215226652086/">VIEW ON INSTAGRAM</a>
-        <blockquote>
-            "Hito's show was very good. Over a 10 minute rant the performer linked together Georgia Alliata's POCBI selfie exhibit, Guzzler, bad Jake Shore work, and her own theoretical oeuvre. These social games of in-jokes, forgery, and trolling are the same strategies the Real Fine Arts artists were playing with Network Painting in the early 2010's (I use Network Painting from Jana Euler, in how she uses for self/scene-referentiality in her work. Later it was used by Zach Feuer gallery in NYC for the show Context Message, curated by Real Fine Arts.) We are interested in not big or small, but a familial conversation. Everyone points up to their big sister and makes mocking face. That is a part of family love." Pirates of the Carbomb Infantry
-        </blockquote>
-        <header>
-        <a href="index.html">Blaise Larmee</a>
-        <a href="books.html">books</a>
-        <a href="shows.html">shows</a>
-        <a href="bio.html">bio</a>
-    </header>
+        <p>Pirates of the Carbomb Infantry</p>
+    </div>
+    <a href="https://instagram.com/stories/highlights/18065215226652086">https://instagram.com/<br>stories/highlights/18065215226652086</a>
+    <blockquote>
+        "Hito's show was very good. Over a 10 minute rant the performer linked together Georgia Alliata's POCBI selfie
+        exhibit, Guzzler, bad Jake Shore work, and her own theoretical oeuvre. These social games of in-jokes, forgery,
+        and trolling are the same strategies the Real Fine Arts artists were playing with Network Painting in the early
+        2010's (I use Network Painting from Jana Euler, in how she uses for self/scene-referentiality in her work. Later
+        it was used by Zach Feuer gallery in NYC for the show Context Message, curated by Real Fine Arts.) We are
+        interested in not big or small, but a familial conversation. Everyone points up to their big sister and makes
+        mocking face. That is a part of family love." Pirates of the Carbomb Infantry
+    </blockquote>
 
 
     <script>
         // Helper function to dynamically generate sequential image arrays
         // Set folderPrefix to 'lo/' if these new images are also in your 'lo' folder
-        function generateImages(template, maxCount, folderPrefix = 'lo/') {
+        function generateImages(template, maxCount, folderPrefix = 'hi/') {
             const list = [];
             for (let i = 1; i <= maxCount; i++) {
                 const paddedNum = String(i).padStart(2, '0'); // Formats 1 as '01', 2 as '02', etc.
@@ -43,45 +45,45 @@
         ];
 
         // --- DOM Manipulation Logic (Unchanged) ---
-// 1. Target elements
-const imgElementOne = document.getElementById('random');
-const imgElementTwo = document.getElementById('random2');
+        // 1. Target elements
+        const imgElementOne = document.getElementById('random');
+        const imgElementTwo = document.getElementById('random2');
 
-const linkElementOne = imgElementOne ? imgElementOne.parentElement : null;
-const linkElementTwo = imgElementTwo ? imgElementTwo.parentElement : null;
+        const linkElementOne = imgElementOne ? imgElementOne.parentElement : null;
+        const linkElementTwo = imgElementTwo ? imgElementTwo.parentElement : null;
 
-if (imageData.length > 0) {
-    // 2. Pick two distinct indices from imageData
-    const firstIdx = Math.floor(Math.random() * imageData.length);
-    let secondIdx = firstIdx;
+        if (imageData.length > 0) {
+            // 2. Pick two distinct indices from imageData
+            const firstIdx = Math.floor(Math.random() * imageData.length);
+            let secondIdx = firstIdx;
 
-    if (imageData.length > 1) {
-        do {
-            secondIdx = Math.floor(Math.random() * imageData.length);
-        } while (secondIdx === firstIdx);
-    }
+            if (imageData.length > 1) {
+                do {
+                    secondIdx = Math.floor(Math.random() * imageData.length);
+                } while (secondIdx === firstIdx);
+            }
 
-    const itemOne = imageData[firstIdx];
-    const itemTwo = imageData[secondIdx];
+            const itemOne = imageData[firstIdx];
+            const itemTwo = imageData[secondIdx];
 
-    // 3. Update the first image & link
-    if (imgElementOne && itemOne && itemOne.hrefs.length > 0) {
-        const randomHrefsIndex = Math.floor(Math.random() * itemOne.hrefs.length);
-        imgElementOne.src = itemOne.hrefs[randomHrefsIndex];
+            // 3. Update the first image & link
+            if (imgElementOne && itemOne && itemOne.hrefs.length > 0) {
+                const randomHrefsIndex = Math.floor(Math.random() * itemOne.hrefs.length);
+                imgElementOne.src = itemOne.hrefs[randomHrefsIndex];
 
-        if (linkElementOne && linkElementOne.tagName === 'A') {
-            linkElementOne.href = itemOne.src;
+                if (linkElementOne && linkElementOne.tagName === 'A') {
+                    linkElementOne.href = itemOne.src;
+                }
+            }
+
+            // 4. Update the second image & link
+            if (imgElementTwo && itemTwo && itemTwo.hrefs.length > 0) {
+                const randomHrefsIndex = Math.floor(Math.random() * itemTwo.hrefs.length);
+                imgElementTwo.src = itemTwo.hrefs[randomHrefsIndex];
+
+                if (linkElementTwo && linkElementTwo.tagName === 'A') {
+                    linkElementTwo.href = itemTwo.src;
+                }
+            }
         }
-    }
-
-    // 4. Update the second image & link
-    if (imgElementTwo && itemTwo && itemTwo.hrefs.length > 0) {
-        const randomHrefsIndex = Math.floor(Math.random() * itemTwo.hrefs.length);
-        imgElementTwo.src = itemTwo.hrefs[randomHrefsIndex];
-
-        if (linkElementTwo && linkElementTwo.tagName === 'A') {
-            linkElementTwo.href = itemTwo.src;
-        }
-    }
-}
     </script>

@@ -14,25 +14,20 @@
 </head>
 
 <body>
-    
-        <h1>Jaywalk</h1>
-        <img src="lo/jaywalk.jpg">
-        <img id="random-one">
-        <p>$15, 116 page anthology featuring 14 pages by Blaise Larmee, 8 by 11 inches, Domino Books, 2025</p>
-        <a href="https://buy.stripe.com/bJedR9cKm3TP1GKaIIbV63L">BUY</a>
-        <img id="random-two">
+    <a href="index.html">Blaise Larmee</a>
+    <div class="article">
         <img src="hi/jaywalk.jpg">
-        <header>
-        <a href="index.html">Blaise Larmee</a>
-        <a href="books.html">books</a>
-        <a href="shows.html">shows</a>
-        <a href="bio.html">bio</a>
-    </header>
-
-
+        <p>Jaywalk</p>
+        <p>$15</p>
+        <a href="https://buy.stripe.com/bJedR9cKm3TP1GKaIIbV63L">BUY</a>
+    </div>
+    <p>116 pages, 8 by 11 inches, Domino Books, 2025</p>
+    <p>I have 14 pages in this anthology.</p>
+    <p>Here's a random spread</p>
+    <img id="random-one">
 
     <script>
-        const pools = [["hi/jaywalk-01.jpg","hi/jaywalk-02.jpg","hi/jaywalk-03.jpg"],["hi/jaywalk-04.jpg","hi/jaywalk-05.jpg","hi/jaywalk-06.jpg","hi/jaywalk-07.jpg"]];
+        const pools = [["hi/jaywalk-01.jpg", "hi/jaywalk-02.jpg", "hi/jaywalk-03.jpg"], ["hi/jaywalk-04.jpg", "hi/jaywalk-05.jpg", "hi/jaywalk-06.jpg", "hi/jaywalk-07.jpg"]];
         const imgTargets = [document.getElementById('random-one'), document.getElementById('random-two')];
 
         if (imgTargets[0] && pools[0].length > 0) {

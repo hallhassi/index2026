@@ -7,7 +7,6 @@ script {
     display: none;
 }
 
-body,
 header,
 h1,
 h2,
@@ -21,6 +20,7 @@ blockquote {
 }
 
 body {
+    display: grid;
     margin: 1em 1em 8em 1em;
     line-height: 1.5em;
     background-color: #ff0000;
@@ -41,16 +41,30 @@ a,
 article,
 button {
     cursor: pointer;
-    background-color: rgba(9, 9, 9, .1);
+    background-color: rgba(126, 111, 111, 0.1);
     border-radius: 1em;
-    padding: 1em 30px 1em;
+    padding: 1em 30px;
     width: fit-content;
 }
 
-h1 {
-    border-radius: 1em;
-    padding: 1em 30px 1em;
+.article {
+    padding: 1em 30px;
     width: fit-content;
+}
+
+article a,
+.article a {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article p,
+.article p {
+    margin: 1em auto;
+}
+
+h1 {
+    padding: 1em 30px;
 }
 
 div a {
@@ -71,26 +85,32 @@ article img {
     margin: 1em auto;
 }
 
-.grid {
+.index {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
 
-.grid > * {
-flex: 0 0 150px;
-}
-
-.index,header {
+header {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-around;
+    max-width: 600px;
 }
+
+header>* {
+    flex: 1;
+    padding: 1em 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
 
 .index h2 {
-    margin: 8em 0;
     flex: 0 0 100%;
 }
 
@@ -102,12 +122,21 @@ flex: 0 0 150px;
 
 @media (orientation: landscape) {
 
-    #index-image img,
-    main.grid img {
-        max-height: 100vh;
+    img {
+        max-height: 90vh;
     }
 }
 
-.hidden {display: none;}
+@media (max-width: 350px) {
+    header>*:nth-child(1) {
+        flex-basis: 100%;
+    }
+}
 
-button.active {background-color: rgba(9, 9, 9, 0);}
+.hidden {
+    display: none;
+}
+
+button.active {
+    background-color: rgba(9, 9, 9, 0);
+}
