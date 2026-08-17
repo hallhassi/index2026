@@ -24,45 +24,5 @@ body {
     background-color: #ff0000;
     background-color: color(rec2020 1 0 0);
     background-color: color(display-p3 1 0 0);
-}
-
-body {
-    display: grid;
-    margin: 1em 1em 8em 1em;
-    line-height: 1.5em;
-    text-align: center;
-}
-
-body>* {
-    margin: 4em auto 4em auto;
-}
-
-#random {
-    cursor: pointer;
-}
-
-a,
-article,
-button {
-    cursor: pointer;
-    background-color: rgba(126, 111, 111, 0.1);
-    border-radius: 1em;
-    padding: 1em 30px;
-    width: fit-content;
-}
-
-.article {
-    padding: 1em 30px;
-    width: fit-content;
-}
-
-article a,
-.article a {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-article p,
-.article p {
-    margin: 1em auto;
+    font-size:1.5em;
 }
