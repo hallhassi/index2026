@@ -19,24 +19,18 @@ blockquote {
     display: block;
 }
 
+html,
+body {
+    background-color: #ff0000;
+    background-color: color(rec2020 1 0 0);
+    background-color: color(display-p3 1 0 0);
+}
+
 body {
     display: grid;
     margin: 1em 1em 8em 1em;
     line-height: 1.5em;
-    background-color: #ff0000;
     text-align: center;
-}
-
-@supports (color: color(display-p3 1 0 0)) {
-    body {
-        background-color: color(display-p3 1 0 0);
-    }
-}
-
-@supports (color: color(rec2020 1 0 0)) {
-    body {
-        background-color: color(rec2020 1 0 0);
-    }
 }
 
 body>* {
@@ -71,82 +65,4 @@ article a,
 article p,
 .article p {
     margin: 1em auto;
-}
-
-h1 {
-    padding: 1em 30px;
-}
-
-div a {
-    margin: 1em auto;
-}
-
-img {
-    max-width: 100%;
-    width: auto;
-    height: auto;
-}
-
-a img {
-    margin-bottom: 1em;
-}
-
-article img {
-    margin: 1em auto;
-}
-
-.index {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-header {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 0;
-    justify-content: space-around;
-    max-width: 600px;
-}
-
-header>* {
-    flex: 1;
-    padding: 1em 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
-
-
-.index h2 {
-    flex: 0 0 100%;
-}
-
-.index div {
-    flex: 1 1 200px;
-    min-width: 100px;
-    max-width: 800px;
-}
-
-@media (orientation: landscape) {
-
-    img {
-        max-height: 90vh;
-    }
-}
-
-@media (max-width: 350px) {
-    header>*:nth-child(1) {
-        flex-basis: 100%;
-    }
-}
-
-.hidden {
-    display: none;
-}
-
-button.active {
-    background-color: rgba(9, 9, 9, 0);
 }
