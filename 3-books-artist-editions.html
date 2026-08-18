@@ -144,24 +144,6 @@
         }        
     </script>
     <script>
-        function shuffleGrid() {
-            const grid = document.querySelector('.grid');
-            const articles = Array.from(grid.children);
-
-            // Fisher-Yates Shuffle Algorithm
-            for (let i = articles.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [articles[i], articles[j]] = [articles[j], articles[i]];
-            }
-
-            // Re-append items in the new shuffled order
-            articles.forEach(article => grid.appendChild(article));
-        }
-        shuffleGrid()
-
-        // Run on page load or attach to a button click
-    </script>
-    <script>
         const books = document.querySelectorAll('article');
 
         books.forEach(book => {
