@@ -1,33 +1,17 @@
-* {
-    all: unset;
-}
+body {margin-bottom:8em;font-size:1.3em;}
 
-head,
-script {
-    display: none;
-}
-
-header,
-h1,
-h2,
-article,
-div,
-p,
-a,
-img,
-blockquote {
-    display: block;
-}
-
-body {
-    background-color: #ff0000;
-    background-color: color(rec2020 1 0 0);
-    background-color: color(display-p3 1 0 0);
-    font-size:1.5em;
-}
-
-a,
-article,
-button {
+article {
     cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+@media (orientation: landscape) {
+    img {
+        max-height: 100vh;
+    }
 }

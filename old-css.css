@@ -1,0 +1,123 @@
+* {
+    all: unset;
+}
+
+head,
+script {
+    display: none;
+}
+
+header,
+h1,
+h2,
+article,
+div,
+p,
+a,
+img,
+blockquote {
+    display: block;
+}
+
+body {
+    margin: 1em 1em 8em 1em;
+    line-height: 1.5em;
+    font-size: 1.5em;
+    background-color: red;
+    text-align: center;
+}
+
+#random {
+    cursor: pointer;
+}
+
+a,
+article,
+button {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+}
+
+a,
+article,
+button,
+.article,
+h2 {
+    padding: 1em 30px;
+    width: fit-content;
+}
+
+article a,
+.article a {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article p,
+.article p {
+    margin: 1em auto;
+}
+
+h1 {
+    padding: 0;
+}
+
+div a,
+.index h2 {
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+a img {
+    margin-bottom: 1em;
+}
+
+article img {
+    margin: 1em auto;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-around;
+    max-width: 600px;
+}
+
+header>* {
+    flex: 1;
+    padding: 1em 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+
+a,h1,h2,p,blockquote {
+    flex: 0 0 100%;
+}
+
+body>a:first-child {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+@media (orientation: landscape) {
+
+    img {
+        max-height: 90vh;
+    }
+}
