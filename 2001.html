@@ -14,7 +14,7 @@
 </head>
 
 <body>
-        <p><a href="index.html">Blaise Larmee</a></p>
+    <p><a href="index.html">Blaise Larmee</a></p>
 
 
     <div class="article">
@@ -32,7 +32,7 @@
         the first place, the sharp as a tack drawing and cartooning, which has never been more distilled than it is
         in this work." Austin English</blockquote>
     <p>Here is a random spread</p>
-    <img id="random-one" class="big">
+    <img id="random-one" style="cursor:pointer;">
 
     <script>
         const imageData = [
@@ -128,23 +128,23 @@
             "hi/2001-91.jpg"
         ];
         const imgOne = document.getElementById('random-one');
-        const imgTwo = document.getElementById('random-two');
 
-        if (imageData.length > 0) {
-            const firstIdx = Math.floor(Math.random() * imageData.length);
-            const randomUrlOne = imageData[firstIdx];
+        function getRandomImage(excludeUrl = null) {
+            if (imageData.length === 0) return '';
+            if (imageData.length === 1) return imageData[0];
 
-            let randomUrlTwo = randomUrlOne;
-            if (imageData.length > 1) {
-                let secondIdx;
-                do {
-                    secondIdx = Math.floor(Math.random() * imageData.length);
-                } while (secondIdx === firstIdx);
-                randomUrlTwo = imageData[secondIdx];
-            }
+            const available = imageData.filter(url => url !== excludeUrl);
+            return available[Math.floor(Math.random() * available.length)];
+        }
 
-            if (imgOne) imgOne.src = randomUrlOne;
-            if (imgTwo) imgTwo.src = randomUrlTwo;
+        if (imgOne) {
+            // Set initial random image
+            imgOne.src = getRandomImage();
+
+            // Change to a new random image on click
+            imgOne.addEventListener('click', () => {
+                imgOne.src = getRandomImage(imgOne.src);
+            });
         }
     </script>
     <script>
