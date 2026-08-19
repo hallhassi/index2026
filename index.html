@@ -73,14 +73,7 @@
             title: "2001",
             price: "$25",
             buyUrl: "https://buy.stripe.com/28E5kD8u6fCxgBEdUUbV63J",
-            images: [...generateImages("2001-", 91)]
-        },
-        {
-            url: "2001.html",
-            title: "2001",
-            price: "$25",
-            buyUrl: "https://buy.stripe.com/28E5kD8u6fCxgBEdUUbV63J",
-            images: ["lo/2001.jpg"]
+            images: [...generateImages("2001-", 91),"lo/2001.jpg"]
         },
         {
             url: "comics-youth-1.html",
@@ -146,10 +139,10 @@
     const selectedImg = selectedItem.images[Math.floor(Math.random() * selectedItem.images.length)];
 
     // 7. Construct HTML based on item type
-    let articleHTML = `<article id="index-image" data-url="${selectedItem.url}">`;
+    let articleHTML = `<a href="${selectedItem.url}">`;
     articleHTML += `<img src="${selectedImg}">`;
     articleHTML += `<p>${selectedItem.title}</p>`;
-    articleHTML += `</article>`;
+    articleHTML += `</a>`;
 
     // 8. Inject article into <main>
     const container = document.getElementById('featured-article');
@@ -157,20 +150,7 @@
         container.outerHTML = articleHTML;
     }
 </script>
-    <script>
-        const books = document.querySelectorAll('article');
 
-        books.forEach(book => {
-            book.addEventListener('click', (e) => {
-                if (e.target.closest('a')) {
-                    return;
-                }
-                if (book.dataset.url) {
-                    window.location.href = book.dataset.url;
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

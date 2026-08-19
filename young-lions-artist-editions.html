@@ -14,31 +14,27 @@
 </head>
 
 <body>
-        <p><a href="index.html">Blaise Larmee</a></p>
+    <p><a href="index.html">Blaise Larmee</a></p>
 
-
-    <article>
-        <img id="random">
-        <p>Young Lions Artist Editions</p>
-    </article>
+    <img id="random">
+    <p>Young Lions Artist Editions</p>
 
     <blockquote>"the story of a cadre of bored performance artists looking for a new inspiration, and finding it in the
         form of a fresh-faced young girl." Rob Clough</blockquote>
     <div class="index">
 
-        <article data-url="young-lions-artist-edition-07.html">
+        <a href="young-lions-artist-edition-07.html">
             <img src="lo/young-lions-artist-edition-07.jpg">
             <p>07</p>
             <p>$25</p>
-            <a href="https://buy.stripe.com/14A7sL5hUbmh1GK188bV63V">BUY</a>
-        </article>
+        </a>
+        <a href="https://buy.stripe.com/14A7sL5hUbmh1GK188bV63V">BUY</a>
 
     </div>
     <script>
         function getRandomNumber(current) {
             let next;
             do {
-                // Generates a random integer from 2 to 4 inclusive
                 next = Math.floor(Math.random() * 3) + 2;
             } while (next === current);
             return next;
@@ -57,38 +53,6 @@
             setRandomImage();
             img.addEventListener('click', setRandomImage);
         }
-    </script>
-    <script>
-        function shuffleGrid() {
-            const grid = document.querySelector('.grid');
-            const articles = Array.from(grid.children);
-
-            // Fisher-Yates Shuffle Algorithm
-            for (let i = articles.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [articles[i], articles[j]] = [articles[j], articles[i]];
-            }
-
-            // Re-append items in the new shuffled order
-            articles.forEach(article => grid.appendChild(article));
-        }
-
-        // Run on page load or attach to a button click
-        shuffleGrid();
-    </script>
-    <script>
-        const books = document.querySelectorAll('article');
-
-        books.forEach(book => {
-            book.addEventListener('click', (e) => {
-                if (e.target.closest('a')) {
-                    return;
-                }
-                if (book.dataset.url) {
-                    window.location.href = book.dataset.url;
-                }
-            });
-        });
     </script>
 </body>
 

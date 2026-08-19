@@ -17,32 +17,15 @@
 
         <p><a href="index.html">Blaise Larmee</a></p>
 
-
-    <div class="article">
         <img src="hi/comics-youth-1.jpg">
         <p>Comics Youth 1</p>
         <p>$5</p>
         <a href="https://buy.stripe.com/28EeVdh0C8a5cloeYYbV63G">BUY</a>
-    </div>
     <p>16 pages, half letter, self-published, 2009</p>
     <blockquote>"A true classic of zine making and comics journalism, this is a comic magazine edited by Blaise Larmee
         where he interviews Jason T. Miles, Jason Overby and the person writing this. Lots of ideas that were in the air
         at the time of Domino's early 2010's birth can be found here." Austin English</blockquote>
 
-    <script>
-        const books = document.querySelectorAll('article');
-
-        books.forEach(book => {
-            book.addEventListener('click', (e) => {
-                if (e.target.closest('a')) {
-                    return;
-                }
-                if (book.dataset.url) {
-                    window.location.href = book.dataset.url;
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

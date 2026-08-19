@@ -14,34 +14,15 @@
 </head>
 
 <body>
-        <p><a href="index.html">Blaise Larmee</a></p>
-
-
-    <div class="article">
-        <img src="hi/jaywalk.jpg">
-        <p>Jaywalk</p>
-        <p>$15</p>
-        <a href="https://buy.stripe.com/bJedR9cKm3TP1GKaIIbV63L">BUY</a>
-    </div>
+    <p><a href="index.html">Blaise Larmee</a></p>
+    <img src="hi/jaywalk.jpg">
+    <p>Jaywalk</p>
+    <p>$15</p>
+    <a href="https://buy.stripe.com/bJedR9cKm3TP1GKaIIbV63L">BUY</a>
     <p>116 pages, 8 by 11 inches, Domino Books, 2025</p>
     <p>I have 14 pages in this anthology.</p>
     <p>Here's a random spread</p>
-    <img id="random-one">
-
-    <script>
-        const pools = [["hi/jaywalk-01.jpg", "hi/jaywalk-02.jpg", "hi/jaywalk-03.jpg"], ["hi/jaywalk-04.jpg", "hi/jaywalk-05.jpg", "hi/jaywalk-06.jpg", "hi/jaywalk-07.jpg"]];
-        const imgTargets = [document.getElementById('random-one'), document.getElementById('random-two')];
-
-        if (imgTargets[0] && pools[0].length > 0) {
-            const idx = Math.floor(Math.random() * pools[0].length);
-            imgTargets[0].src = pools[0][idx];
-        }
-        if (imgTargets[1] && pools[1].length > 0) {
-            const idx = Math.floor(Math.random() * pools[1].length);
-            imgTargets[1].src = pools[1][idx];
-        }
-    </script>
-
+    <img id="random-jaywalk">
 </body>
 
 </html>

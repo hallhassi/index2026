@@ -15,7 +15,7 @@
 
 <body>
     <p><a href="index.html">Blaise Larmee</a></p>
-    <img id="random" width="1334" height="750">
+    <img id="random-3-books-highlights">
     <p>3 Books Artist Editions</p>
     <blockquote>
         3 Books is the most intimate comic i have ever read. It is also a comic in which every artistic choice is based
@@ -27,136 +27,91 @@
         before being called out 'in real life' by his publisher, two years later. 3 Books unsold copies were pulped and
         the label restructured. The new head publisher - a college student - resigned within two weeks; citing stress
         and suicidal thoughts. <br>Stephen Hayes</blockquote>
-    <article data-url="3-books-artist-edition-01.html">
+    <a href="3-books-artist-edition-01.html">
         <img src="lo/3-books-artist-edition-01.jpg">
         <p>01</p>
-    </article>
-    <article data-url="3-books-artist-edition-02.html">
+    </a>
+    <a href="3-books-artist-edition-02.html">
         <img src="lo/3-books-artist-edition-02.jpg">
         <p>02</p>
-    </article>
-    <article data-url="3-books-artist-edition-03.html">
+    </a>
+    <a href="3-books-artist-edition-03.html">
         <img src="lo/3-books-artist-edition-03.jpg">
         <p>03</p>
-    </article>
-    <article data-url="3-books-artist-edition-04.html">
+    </a>
+    <a href="3-books-artist-edition-04.html">
         <img src="lo/3-books-artist-edition-04.jpg">
         <p>04</p>
-    </article>
-    <article data-url="3-books-artist-edition-06.html">
+    </a>
+    <a href="3-books-artist-edition-06.html">
         <img src="lo/3-books-artist-edition-06.jpg">
         <p>06</p>
-    </article>
-    <article data-url="3-books-artist-edition-08.html">
+    </a>
+    <a href="3-books-artist-edition-08.html">
         <img src="lo/3-books-artist-edition-08.jpg">
         <p>08</p>
-    </article>
-    <article data-url="3-books-artist-edition-09.html">
+    </a>
+    <a href="3-books-artist-edition-09.html">
         <img src="lo/3-books-artist-edition-09.jpg">
         <p>09</p>
-    </article>
-    <article data-url="3-books-artist-edition-10.html">
+    </a>
+    <a href="3-books-artist-edition-10.html">
         <img src="lo/3-books-artist-edition-10.jpg">
         <p>10</p>
-    </article>
-    <article data-url="3-books-artist-edition-11.html">
+    </a>
+    <a href="3-books-artist-edition-11.html">
         <img src="lo/3-books-artist-edition-11.jpg">
         <p>11</p>
-    </article>
-    <article data-url="3-books-artist-edition-14.html">
+    </a>
+    <a href="3-books-artist-edition-14.html">
         <img src="lo/3-books-artist-edition-14.jpg">
         <p>14</p>
-    </article>
-    <article data-url="3-books-artist-edition-15.html">
+    </a>
+    <a href="3-books-artist-edition-15.html">
         <img src="lo/3-books-artist-edition-15.jpg">
         <p>15</p>
-    </article>
-    <article data-url="3-books-artist-edition-16.html">
+    </a>
+    <a href="3-books-artist-edition-16.html">
         <img src="lo/3-books-artist-edition-16.jpg">
         <p>16</p>
-    </article>
-    <article data-url="3-books-artist-edition-17.html">
+    </a>
+    <a href="3-books-artist-edition-17.html">
         <img src="lo/3-books-artist-edition-17.jpg">
         <p>17</p>
-    </article>
-    <article data-url="3-books-artist-edition-18.html">
+    </a>
+    <a href="3-books-artist-edition-18.html">
         <img src="lo/3-books-artist-edition-18.jpg">
         <p>18</p>
-    </article>
-    <article data-url="3-books-artist-edition-19.html">
+    </a>
+    <a href="3-books-artist-edition-19.html">
         <img src="lo/3-books-artist-edition-19.jpg">
         <p>19</p>
-    </article>
-    <article data-url="3-books-artist-edition-21.html">
+    </a>
+    <a href="3-books-artist-edition-21.html">
         <img src="lo/3-books-artist-edition-21.jpg">
         <p>21</p>
-    </article>
-    <article data-url="3-books-artist-edition-22.html">
+    </a>
+    <a href="3-books-artist-edition-22.html">
         <img src="lo/3-books-artist-edition-22.jpg">
         <p>22</p>
-    </article>
-    <article data-url="3-books-artist-edition-23.html">
+    </a>
+    <a href="3-books-artist-edition-23.html">
         <img src="lo/3-books-artist-edition-23.jpg">
         <p>23</p>
-    </article>
-    <article data-url="3-books-artist-edition-25.html">
+    </a>
+    <a href="3-books-artist-edition-25.html">
         <img src="lo/3-books-artist-edition-25.jpg">
         <p>25</p>
-    </article>
-    <article data-url="3-books-artist-edition-26.html">
+    </a>
+    <a href="3-books-artist-edition-26.html">
         <img src="lo/3-books-artist-edition-26.jpg">
         <p>26</p>
-    </article>
-    <article data-url="3-books-artist-edition-27.html">
+    </a>
+    <a href="3-books-artist-edition-27.html">
         <img src="lo/3-books-artist-edition-27.jpg">
         <p>27</p>
-    </article>
-    <script>
-        const randomNumber = Math.floor(Math.random() * 51) + 1;
-        const paddedNumber = String(randomNumber).padStart(2, '0');
-        const img = document.getElementById('random');
-
-        if (img && (randomNumber < 47 || randomNumber > 49)) {
-            img.src = `hi/3-books-artist-editions-highlights-${paddedNumber}.jpg`;
-        }
-
-        function setRandomImage() {
-            let randomNumber;
-
-            // Pick a random number 1-51, skipping 47-49
-            do {
-                randomNumber = Math.floor(Math.random() * 51) + 1;
-            } while (randomNumber >= 47 && randomNumber <= 49);
-
-            const paddedNumber = String(randomNumber).padStart(2, '0');
-            img.src = `hi/3-books-artist-editions-highlights-${paddedNumber}.jpg`;
-        }
-
-        if (img) {
-            // Set cursor to pointer and add rounded corners
-            img.style.cursor = 'pointer';
-
-            // Set initial random image on load
-            setRandomImage();
-
-            // Change image whenever it's clicked
-            img.addEventListener('click', setRandomImage);
-        }        
-    </script>
-    <script>
-        const books = document.querySelectorAll('article');
-
-        books.forEach(book => {
-            book.addEventListener('click', (e) => {
-                if (e.target.closest('a')) {
-                    return;
-                }
-                if (book.dataset.url) {
-                    window.location.href = book.dataset.url;
-                }
-            });
-        });
-    </script>
-</body>
+    </a>
+    <script src="random.js"></script>
+    </body>
 
 </html>

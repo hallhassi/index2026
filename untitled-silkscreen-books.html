@@ -14,34 +14,20 @@
 </head>
 
 <body>
-        <p><a href="index.html">Blaise Larmee</a></p>
+    <p><a href="index.html">Blaise Larmee</a></p>
 
-
-    <article data-url="untitled-silkscreen-book-01.html">
+    <a href="untitled-silkscreen-book-01.html">
         <img src="lo/untitled-silkscreen-book-01.jpg">
-    </article>
+    </a>
 
-    <article data-url="untitled-silkscreen-book-02.html">
+    <a href="untitled-silkscreen-book-02.html">
         <img src="lo/untitled-silkscreen-book-02.jpg">
-    </article>
+    </a>
 
-    <article data-url="untitled-silkscreen-book-03.html">
+    <a href="untitled-silkscreen-book-03.html">
         <img src="lo/untitled-silkscreen-book-03.jpg">
-    </article>
-    <script>
-        const books = document.querySelectorAll('article');
-
-        books.forEach(book => {
-            book.addEventListener('click', (e) => {
-                if (e.target.closest('a')) {
-                    return;
-                }
-                if (book.dataset.url) {
-                    window.location.href = book.dataset.url;
-                }
-            });
-        });
-    </script>
+    </a>
+    <p>Untitled Silkscreen Books</p>
 </body>
 
 </html>

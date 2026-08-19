@@ -11,9 +11,8 @@
 
 <body>
     <p><a href="index.html">Blaise Larmee</a></p>
-    <img id="random">
+    <img id="random-pirates" alt="Pirates of the Carbomb Infantry exhibition">
     <p>Pirates of the Carbomb Infantry</p>
-    <a href="https://instagram.com/stories/highlights/18065215226652086">https://instagram.com/<br>stories/highlights/18065215226652086</a>
     <blockquote>
         Hito's show was very good. Over a 10 minute rant the performer linked together Georgia Alliata's POCBI selfie
         exhibit, Guzzler, bad Jake Shore work, and her own theoretical oeuvre. These social games of in-jokes, forgery,
@@ -23,67 +22,7 @@
         interested in not big or small, but a familial conversation. Everyone points up to their big sister and makes
         mocking face. That is a part of family love. <br>Pirates of the Carbomb Infantry
     </blockquote>
-
-    <script>
-        // Helper function to dynamically generate sequential image arrays
-        // Set folderPrefix to 'lo/' if these new images are also in your 'lo' folder
-        function generateImages(template, maxCount, folderPrefix = 'hi/') {
-            const list = [];
-            for (let i = 1; i <= maxCount; i++) {
-                const paddedNum = String(i).padStart(2, '0'); // Formats 1 as '01', 2 as '02', etc.
-                list.push(`${folderPrefix}${template}${paddedNum}.jpg`);
-            }
-            return list;
-        }
-
-        const imageData = [
-            // 1. Your original dataset (91 images)
-            {
-                "src": "https://www.instagram.com/stories/highlights/18065215226652086/",
-                "hrefs": generateImages("piratesofthecarbombinfantry-", 10)
-            }
-        ];
-
-        // --- DOM Manipulation Logic (Unchanged) ---
-        // 1. Target elements
-        const imgElementOne = document.getElementById('random');
-        const imgElementTwo = document.getElementById('random2');
-
-        const linkElementOne = imgElementOne ? imgElementOne.parentElement : null;
-        const linkElementTwo = imgElementTwo ? imgElementTwo.parentElement : null;
-
-        if (imageData.length > 0) {
-            // 2. Pick two distinct indices from imageData
-            const firstIdx = Math.floor(Math.random() * imageData.length);
-            let secondIdx = firstIdx;
-
-            if (imageData.length > 1) {
-                do {
-                    secondIdx = Math.floor(Math.random() * imageData.length);
-                } while (secondIdx === firstIdx);
-            }
-
-            const itemOne = imageData[firstIdx];
-            const itemTwo = imageData[secondIdx];
-
-            // 3. Update the first image & link
-            if (imgElementOne && itemOne && itemOne.hrefs.length > 0) {
-                const randomHrefsIndex = Math.floor(Math.random() * itemOne.hrefs.length);
-                imgElementOne.src = itemOne.hrefs[randomHrefsIndex];
-
-                if (linkElementOne && linkElementOne.tagName === 'A') {
-                    linkElementOne.href = itemOne.src;
-                }
-            }
-
-            // 4. Update the second image & link
-            if (imgElementTwo && itemTwo && itemTwo.hrefs.length > 0) {
-                const randomHrefsIndex = Math.floor(Math.random() * itemTwo.hrefs.length);
-                imgElementTwo.src = itemTwo.hrefs[randomHrefsIndex];
-
-                if (linkElementTwo && linkElementTwo.tagName === 'A') {
-                    linkElementTwo.href = itemTwo.src;
-                }
-            }
-        }
-    </script>
+    <a href="https://instagram.com/stories/highlights/18065215226652086">https://instagram.com/<br>stories/highlights/18065215226652086</a>
+    <script src="random.js"></script>
+</body>
+</html>
