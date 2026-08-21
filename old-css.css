@@ -106,7 +106,6 @@ header>* {
     justify-content: center
 }
 
-
 a,h1,h2,p,blockquote {
     flex: 0 0 100%;
 }
