@@ -141,9 +141,16 @@
 
         function setRandomImage() {
             const choice = config.pool[Math.floor(Math.random() * config.pool.length)];
-            
             const isFullUrl = choice.startsWith("http://") || choice.startsWith("https://");
-            el.src = isFullUrl ? choice : config.prefix + folder + choice;
+
+            if (isFullUrl) {
+                el.src = choice;
+            } else if (config.prefix) {
+                // If prefix is set (like baseUrl), skip inserting "hi/" or "lo/"
+                el.src = config.prefix + choice;
+            } else {
+                el.src = folder + choice;
+            }
         }
 
         // Set initial image swap
@@ -151,8 +158,25 @@
 
         // Swap on click only if not on an excluded page
         if (!disableClick) {
-            el.style = "cursor:pointer;"
+            el.style.cursor = "pointer";
             el.addEventListener("click", setRandomImage);
         }
     });
 })();
+
+document.addEventListener('keydown', (e) => {
+  if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+  const pages = ['index.html', '2.html', '3.html', '4.html', '5.html', '6.html', '7.html', '8.html', '9.html'];
+  
+  const filename = window.location.pathname.split('/').pop().toLowerCase();
+  
+  let current = pages.indexOf(filename);
+  if (current === -1) current = 0;
+
+  if (e.key === 'ArrowLeft' && current > 0) {
+    window.location.href = pages[current - 1];
+  } else if (e.key === 'ArrowRight' && current < pages.length - 1) {
+    window.location.href = pages[current + 1];
+  }
+});
