@@ -167,16 +167,11 @@
 document.addEventListener('keydown', (e) => {
   if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
-  const pages = ['index.html', '2.html', '3.html', '4.html', '5.html', '6.html', '7.html', '8.html', '9.html'];
-  
-  const filename = window.location.pathname.split('/').pop().toLowerCase();
-  
-  let current = pages.indexOf(filename);
-  if (current === -1) current = 0;
+  const page = parseInt(window.location.pathname.split('/').pop(), 10) || 1;
 
-  if (e.key === 'ArrowLeft' && current > 0) {
-    window.location.href = pages[current - 1];
-  } else if (e.key === 'ArrowRight' && current < pages.length - 1) {
-    window.location.href = pages[current + 1];
+  if (e.key === 'ArrowLeft' && page > 1) {
+    window.location.href = page === 2 ? 'index.html' : `${page - 1}.html`;
+  } else if (e.key === 'ArrowRight') {
+    window.location.href = page === 1 ? '2.html' : `${page + 1}.html`;
   }
 });
