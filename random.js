@@ -1,6 +1,32 @@
 (function () {
     const baseUrl = "https://apartment.gallery/400/";
 
+    const imageData = [
+        "hi/2001-02.jpg", "hi/2001-03.jpg", "hi/2001-04.jpg", "hi/2001-05.jpg",
+        "hi/2001-06.jpg", "hi/2001-07.jpg", "hi/2001-08.jpg", "hi/2001-09.jpg",
+        "hi/2001-10.jpg", "hi/2001-11.jpg", "hi/2001-12.jpg", "hi/2001-13.jpg",
+        "hi/2001-14.jpg", "hi/2001-15.jpg", "hi/2001-16.jpg", "hi/2001-17.jpg",
+        "hi/2001-18.jpg", "hi/2001-19.jpg", "hi/2001-20.jpg", "hi/2001-21.jpg",
+        "hi/2001-22.jpg", "hi/2001-23.jpg", "hi/2001-24.jpg", "hi/2001-25.jpg",
+        "hi/2001-26.jpg", "hi/2001-27.jpg", "hi/2001-28.jpg", "hi/2001-29.jpg",
+        "hi/2001-30.jpg", "hi/2001-31.jpg", "hi/2001-32.jpg", "hi/2001-33.jpg",
+        "hi/2001-34.jpg", "hi/2001-35.jpg", "hi/2001-36.jpg", "hi/2001-37.jpg",
+        "hi/2001-38.jpg", "hi/2001-39.jpg", "hi/2001-40.jpg", "hi/2001-41.jpg",
+        "hi/2001-42.jpg", "hi/2001-43.jpg", "hi/2001-44.jpg", "hi/2001-45.jpg",
+        "hi/2001-46.jpg", "hi/2001-47.jpg", "hi/2001-48.jpg", "hi/2001-49.jpg",
+        "hi/2001-50.jpg", "hi/2001-51.jpg", "hi/2001-52.jpg", "hi/2001-53.jpg",
+        "hi/2001-54.jpg", "hi/2001-55.jpg", "hi/2001-56.jpg", "hi/2001-57.jpg",
+        "hi/2001-58.jpg", "hi/2001-59.jpg", "hi/2001-60.jpg", "hi/2001-61.jpg",
+        "hi/2001-62.jpg", "hi/2001-63.jpg", "hi/2001-64.jpg", "hi/2001-65.jpg",
+        "hi/2001-66.jpg", "hi/2001-67.jpg", "hi/2001-68.jpg", "hi/2001-69.jpg",
+        "hi/2001-70.jpg", "hi/2001-71.jpg", "hi/2001-72.jpg", "hi/2001-73.jpg",
+        "hi/2001-74.jpg", "hi/2001-75.jpg", "hi/2001-76.jpg", "hi/2001-77.jpg",
+        "hi/2001-78.jpg", "hi/2001-79.jpg", "hi/2001-80.jpg", "hi/2001-81.jpg",
+        "hi/2001-82.jpg", "hi/2001-83.jpg", "hi/2001-84.jpg", "hi/2001-85.jpg",
+        "hi/2001-86.jpg", "hi/2001-87.jpg", "hi/2001-88.jpg", "hi/2001-89.jpg",
+        "hi/2001-90.jpg", "hi/2001-91.jpg"
+    ];
+
     // Generate pool for 01-51, skipping 47, 48, and 49
     const b3pool = Array.from({ length: 51 }, (_, i) => i + 1)
         .filter(num => num < 47 || num > 49)
@@ -125,11 +151,11 @@
     const pathname = window.location.pathname.toLowerCase();
     const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
 
-    const loPages = ["bio.html", "books.html", "shows.html"];
-    const useLo = loPages.includes(filename);
+    const loPages = ["index.html", "bio.html", "books.html", "shows.html"];
+    const isRootIndex = filename === "" || filename === "/";
+    const useLo = loPages.includes(filename) || isRootIndex;
 
     const disabledPages = ["index.html", "books.html", "shows.html", "bio.html"];
-    const isRootIndex = filename === "" || filename === "/";
     const disableClick = disabledPages.includes(filename) || isRootIndex;
 
     const folder = useLo ? "lo/" : "hi/";
@@ -162,16 +188,39 @@
             el.addEventListener("click", setRandomImage);
         }
     });
+
+    // Handle random-one image swap
+    const imgOne = document.getElementById('random-one');
+
+    function getRandomImage(excludeUrl = null) {
+        if (imageData.length === 0) return '';
+        if (imageData.length === 1) return imageData[0];
+
+        const available = imageData.filter(url => url !== excludeUrl);
+        return available[Math.floor(Math.random() * available.length)];
+    }
+
+    if (imgOne) {
+        imgOne.src = getRandomImage();
+
+        if (!disableClick) {
+            imgOne.style.cursor = "pointer";
+            imgOne.addEventListener('click', () => {
+                imgOne.src = getRandomImage(imgOne.src);
+            });
+        }
+    }
 })();
 
 document.addEventListener('keydown', (e) => {
   if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
-  const page = parseInt(window.location.pathname.split('/').pop(), 10) || 1;
+  const path = window.location.pathname.split('/').pop();
+  const page = path === '' || path === 'index.html' ? 0 : parseInt(path, 10) || 0;
 
-  if (e.key === 'ArrowLeft' && page > 1) {
-    window.location.href = page === 2 ? 'index.html' : `${page - 1}.html`;
+  if (e.key === 'ArrowLeft' && page > 0) {
+    window.location.href = page === 1 ? 'index.html' : `${page - 1}.html`;
   } else if (e.key === 'ArrowRight') {
-    window.location.href = page === 1 ? '2.html' : `${page + 1}.html`;
+    window.location.href = page === 0 ? '1.html' : `${page + 1}.html`;
   }
 });
