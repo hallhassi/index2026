@@ -212,15 +212,24 @@
     }
 })();
 
+// Keypad Navigation - Active on numbered pages or index.html
 document.addEventListener('keydown', (e) => {
-  if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+    // Ignore key combos (Ctrl, Alt, Meta/Cmd, Shift) and text inputs
+    if (e.ctrlKey || e.altKey || e.metaKey || e.shiftKey) return;
+    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
-  const path = window.location.pathname.split('/').pop();
-  const page = path === '' || path === 'index.html' ? 0 : parseInt(path, 10) || 0;
+    const path = window.location.pathname.split('/').pop().toLowerCase();
+    const isIndex = path === '' || path === 'index.html';
+    const isNumberPage = /^\d+(\.html)?$/.test(path);
 
-  if (e.key === 'ArrowLeft' && page > 0) {
-    window.location.href = page === 1 ? 'index.html' : `${page - 1}.html`;
-  } else if (e.key === 'ArrowRight') {
-    window.location.href = page === 0 ? '1.html' : `${page + 1}.html`;
-  }
+    if (!isIndex && !isNumberPage) return;
+
+    const page = isIndex ? 0 : parseInt(path, 10);
+
+    if (e.key === 'ArrowLeft') {
+        window.location.href = page === 1 ? 'index.html' : `${page - 1}.html`;
+    } 
+    else if (e.key === 'ArrowRight') {
+        window.location.href = page === 0 ? '1.html' : `${page + 1}.html`;
+    }
 });
