@@ -7,7 +7,13 @@
         .map(n => `3-books-artist-editions-highlights-${String(n).padStart(2, '0')}.jpg`);
 
     const swaps = {
-        "random-larmee": { prefix: "", pool: Array.from({ length: 90 }, (_, i) => `https://larmee.org/800/${String(90 - i).padStart(3, "0")}kevinlarmee.jpg`) },
+        "random-larmee": {
+            allowClick: true,
+            prefix: "",
+            pool: Array.from({ length: 90 }, (_, i) => `https://larmee.org/800/${String(90 - i).padStart(3, "0")}kevinlarmee.jpg`),
+            targetUrls: Array.from({ length: 90 }, (_, i) => `https://larmee.org/paintings/${i + 1}.html`),
+            preserveImage: false
+        },
         "random-apartment-gallery": {
             prefix: baseUrl,
             pool: [
@@ -22,29 +28,26 @@
         "random-my-parents": { pool: Array.from({ length: 7 }, (_, i) => `myparents-${String(i + 1).padStart(2, '0')}.jpg`) },
         "random-pirates": { pool: Array.from({ length: 10 }, (_, i) => `piratesofthecarbombinfantry-${String(i + 1).padStart(2, '0')}.jpg`) },
         "random-jaywalk": { pool: Array.from({ length: 7 }, (_, i) => `jaywalk-${String(i + 1).padStart(2, '0')}.jpg`) },
-        "random-young-lions": { targetUrl: "young-lions.html", pool: ["young-lions-artist-edition-07.jpg"] },
-        "random-young-lions-highlights": { targetUrl: "young-lions.html", pool: ["02", "03", "04"].map(n => `young-lions-artist-editions-highlights-${n}.jpg`) },
+        "random-young-lions": { allowClick: true, targetUrl: "young-lions-artist-edition-07.html", pool: ["young-lions-artist-edition-07.jpg"] },
+        "random-young-lions-highlights": { targetUrl: "young-lions-artist-edition-07.html", pool: ["02", "03", "04"].map(n => `young-lions-artist-editions-highlights-${n}.jpg`) },
         "random-mirror-mirror": { pool: Array.from({ length: 97 }, (_, i) => `mirrormirror-${String(i + 1).padStart(2, '0')}.jpg`) },
-        "random-3-books": { targetUrl: "3-books.html", pool: [1, 2, 3, 4, 6, 8, 9, 11, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27].map(n => `3-books-artist-edition-${String(n).padStart(2, '0')}.jpg`) },
-        "random-3-books-highlights": { targetUrl: "3-books.html", pool: b3pool },
-        "random-silkscreen-books": { targetUrl: "untitled-silkscreen-book.html", pool: ["01", "02", "03"].map(n => `untitled-silkscreen-book-${n}.jpg`) },
-        "random-construction": {
+        "random-3-books": {
             allowClick: true,
-            pool: [
-                "construction.jpg",
-                "construction-02.jpg",
-                "untitled-silkscreen-book-01.jpg",
-                "untitled-silkscreen-book-02.jpg",
-                "untitled-silkscreen-book-03.jpg"
-            ],
-            targetUrls: [
-                "construction.html",
-                "construction.html",
-                "untitled-silkscreen-book-01.html",
-                "untitled-silkscreen-book-02.html",
-                "untitled-silkscreen-book-03.html"
-            ]
-        }
+            pool: [1, 2, 3, 4, 6, 8, 9, 11, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27].map(n => `3-books-artist-edition-${String(n).padStart(2, '0')}.jpg`),
+            targetUrls: [1, 2, 3, 4, 6, 8, 9, 11, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27].map(n => `3-books-artist-edition-${String(n).padStart(2, '0')}.html`)
+        },
+        "random-3-books-highlights": { targetUrl: "3-books.html", pool: b3pool },
+        "random-silkscreen-books": { targetUrl: "untitled-silkscreen-books.html", pool: ["01", "02", "03", "04", "05"].map(n => `untitled-silkscreen-book-${n}.jpg`) },
+        "random-cruise": {
+            allowClick: true,
+            pool: [1, 2, 3, 4, 5, 6, 7].map(n => `cruise-${String(n).padStart(2, '0')}.${n <= 5 ? 'png' : 'jpg'}`),
+            targetUrls: [1, 2, 3, 4, 5, 6, 7].map(n => `cruise-${String(n).padStart(2, '0')}.html`)
+        },
+        "random-silkscreen-books": {
+            allowClick: true,
+            pool: [1, 2, 3, 4, 5].map(n => `untitled-silkscreen-book-${String(n).padStart(2, '0')}.jpg`),
+            targetUrls: [1, 2, 3, 4, 5].map(n => `untitled-silkscreen-book-${String(n).padStart(2, '0')}.html`)
+        },
     };
 
     const fn = window.location.pathname.split('/').pop().toLowerCase();
@@ -53,31 +56,49 @@
     const folder = (["index.html", "bio.html", "books.html", "shows.html"].includes(fn) || isRoot) ? "lo/" : "hi/";
 
     const getRand = (arr) => arr[Math.floor(Math.random() * arr.length)];
+    const requestedImage = new URLSearchParams(window.location.search).get("image");
+    const matchesRequestedImage = (url) => requestedImage && (url === requestedImage || url.split("/").pop() === requestedImage);
 
-    Object.entries(swaps).forEach(([id, { prefix, pool, targetUrl, targetUrls, allowClick }]) => {
+    Object.entries(swaps).forEach(([id, { prefix, pool, targetUrl, targetUrls, allowClick, preserveImage = true }]) => {
         const el = document.getElementById(id);
         if (!el || !pool?.length) return;
 
-        const pickIndex = Math.floor(Math.random() * pool.length);
+        const requestedIndex = requestedImage ? pool.findIndex(matchesRequestedImage) : -1;
+        const pickIndex = requestedIndex >= 0 ? requestedIndex : Math.floor(Math.random() * pool.length);
         const pick = pool[pickIndex];
         el.src = pick.startsWith("http") ? pick : (prefix !== undefined ? prefix : folder) + pick;
+        const link = document.getElementById(`${id}-link`) || el.closest("a");
+
+        const linkHref = link?.getAttribute("href") || "";
+        if (disableClick && link && !/^(https?:|\/\/)/i.test(linkHref)) {
+            link.href = `${linkHref.split("?")[0]}?image=${encodeURIComponent(pick)}`;
+        }
 
         if (!disableClick || allowClick) {
-            const link = document.getElementById(`${id}-link`) || el.closest("a");
             el.style.cursor = "pointer";
             if (link && (targetUrl || targetUrls)) {
-                link.href = targetUrls ? targetUrls[pickIndex] : targetUrl;
+                const destination = targetUrls ? targetUrls[pickIndex] : targetUrl;
+                link.href = preserveImage ? `${destination}?image=${encodeURIComponent(pick)}` : destination;
             }
             el.addEventListener("click", () => {
                 if (link && (targetUrl || targetUrls)) return;
-                el.src = (prefix !== undefined ? prefix : folder) + getRand(pool);
+                const nextPick = getRand(pool);
+                if (link) link.href = `${link.href.split("?")[0]}?image=${encodeURIComponent(nextPick)}`;
+                el.src = (prefix !== undefined ? prefix : folder) + nextPick;
             });
         }
     });
 
     const imgOne = document.getElementById('random-one');
     if (imgOne && imageData.length) {
-        imgOne.src = getRand(imageData);
+        const requestedIndex = requestedImage ? imageData.findIndex(matchesRequestedImage) : -1;
+        const selectedImage = requestedIndex >= 0 ? imageData[requestedIndex] : getRand(imageData);
+        imgOne.src = selectedImage;
+        const link = imgOne.closest("a");
+        const linkHref = link?.getAttribute("href") || "";
+        if (disableClick && link && !/^(https?:|\/\/)/i.test(linkHref)) {
+            link.href = `${linkHref.split("?")[0]}?image=${encodeURIComponent(selectedImage)}`;
+        }
         if (!disableClick) {
             imgOne.style.cursor = "pointer";
             imgOne.addEventListener('click', () => imgOne.src = getRand(imageData.filter(u => u !== imgOne.src)));
