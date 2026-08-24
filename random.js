@@ -1,235 +1,98 @@
 (function () {
     const baseUrl = "https://apartment.gallery/400/";
 
-    const imageData = [
-        "hi/2001-02.jpg", "hi/2001-03.jpg", "hi/2001-04.jpg", "hi/2001-05.jpg",
-        "hi/2001-06.jpg", "hi/2001-07.jpg", "hi/2001-08.jpg", "hi/2001-09.jpg",
-        "hi/2001-10.jpg", "hi/2001-11.jpg", "hi/2001-12.jpg", "hi/2001-13.jpg",
-        "hi/2001-14.jpg", "hi/2001-15.jpg", "hi/2001-16.jpg", "hi/2001-17.jpg",
-        "hi/2001-18.jpg", "hi/2001-19.jpg", "hi/2001-20.jpg", "hi/2001-21.jpg",
-        "hi/2001-22.jpg", "hi/2001-23.jpg", "hi/2001-24.jpg", "hi/2001-25.jpg",
-        "hi/2001-26.jpg", "hi/2001-27.jpg", "hi/2001-28.jpg", "hi/2001-29.jpg",
-        "hi/2001-30.jpg", "hi/2001-31.jpg", "hi/2001-32.jpg", "hi/2001-33.jpg",
-        "hi/2001-34.jpg", "hi/2001-35.jpg", "hi/2001-36.jpg", "hi/2001-37.jpg",
-        "hi/2001-38.jpg", "hi/2001-39.jpg", "hi/2001-40.jpg", "hi/2001-41.jpg",
-        "hi/2001-42.jpg", "hi/2001-43.jpg", "hi/2001-44.jpg", "hi/2001-45.jpg",
-        "hi/2001-46.jpg", "hi/2001-47.jpg", "hi/2001-48.jpg", "hi/2001-49.jpg",
-        "hi/2001-50.jpg", "hi/2001-51.jpg", "hi/2001-52.jpg", "hi/2001-53.jpg",
-        "hi/2001-54.jpg", "hi/2001-55.jpg", "hi/2001-56.jpg", "hi/2001-57.jpg",
-        "hi/2001-58.jpg", "hi/2001-59.jpg", "hi/2001-60.jpg", "hi/2001-61.jpg",
-        "hi/2001-62.jpg", "hi/2001-63.jpg", "hi/2001-64.jpg", "hi/2001-65.jpg",
-        "hi/2001-66.jpg", "hi/2001-67.jpg", "hi/2001-68.jpg", "hi/2001-69.jpg",
-        "hi/2001-70.jpg", "hi/2001-71.jpg", "hi/2001-72.jpg", "hi/2001-73.jpg",
-        "hi/2001-74.jpg", "hi/2001-75.jpg", "hi/2001-76.jpg", "hi/2001-77.jpg",
-        "hi/2001-78.jpg", "hi/2001-79.jpg", "hi/2001-80.jpg", "hi/2001-81.jpg",
-        "hi/2001-82.jpg", "hi/2001-83.jpg", "hi/2001-84.jpg", "hi/2001-85.jpg",
-        "hi/2001-86.jpg", "hi/2001-87.jpg", "hi/2001-88.jpg", "hi/2001-89.jpg",
-        "hi/2001-90.jpg", "hi/2001-91.jpg"
-    ];
-
-    // Generate pool for 01-51, skipping 47, 48, and 49
+    const imageData = Array.from({ length: 90 }, (_, i) => `hi/2001-${String(i + 2).padStart(2, '0')}.jpg`);
     const b3pool = Array.from({ length: 51 }, (_, i) => i + 1)
-        .filter(num => num < 47 || num > 49)
-        .map(num => `3-books-artist-editions-highlights-${String(num).padStart(2, '0')}.jpg`);
+        .filter(n => n < 47 || n > 49)
+        .map(n => `3-books-artist-editions-highlights-${String(n).padStart(2, '0')}.jpg`);
 
     const swaps = {
-        "random-larmee": {
-            prefix: "",
-            pool: Array.from({ length: 90 }, (_, i) => {
-                const num = String(90 - i).padStart(3, "0");
-                return `https://larmee.org/800/${num}kevinlarmee.jpg`;
-            })
-        },
+        "random-larmee": { prefix: "", pool: Array.from({ length: 90 }, (_, i) => `https://larmee.org/800/${String(90 - i).padStart(3, "0")}kevinlarmee.jpg`) },
         "random-apartment-gallery": {
             prefix: baseUrl,
             pool: [
-                "blaise-larmee/01.jpg", "blaise-larmee/02.jpg", "blaise-larmee/03.jpg", "blaise-larmee/04.jpg",
-                "blaise-larmee/05.jpg", "blaise-larmee/06.jpg", "blaise-larmee/07.jpg", "blaise-larmee/08.jpg",
-                "blaise-larmee/09.jpg", "blaise-larmee/10.jpg", "blaise-larmee/11.jpg",
-                "brianna-perry/DSC_6564.JPG", "brianna-perry/DSC_6577.JPG", "brianna-perry/DSC_6578.JPG",
-                "brianna-perry/DSC_6579.JPG", "brianna-perry/DSC_6580.JPG", "brianna-perry/DSC_6581.JPG",
-                "brianna-perry/DSC_6582.JPG", "brianna-perry/DSC_6583.JPG", "brianna-perry/DSC_6584.JPG",
-                "brianna-perry/DSC_6585.JPG", "brianna-perry/DSC_6586.JPG", "brianna-perry/DSC_6587.JPG",
-                "brianna-perry/DSC_6588.JPG", "brianna-perry/DSC_6589.JPG", "brianna-perry/DSC_6590.JPG",
-                "brianna-perry/DSC_6605.JPG", "brianna-perry/DSC_6606.JPG", "brianna-perry/DSC_6607.JPG",
-                "brianna-perry/DSC_6608.JPG", "brianna-perry/DSC_6609.JPG", "brianna-perry/DSC_6610.JPG",
-                "brianna-perry/DSC_6611.JPG", "brianna-perry/DSC_6612.JPG", "brianna-perry/DSC_6615.JPG",
-                "brianna-perry/DSC_6616.JPG", "brianna-perry/DSC_6617.JPG", "brianna-perry/DSC_6618.JPG",
-                "brianna-perry/DSC_6619.JPG", "brianna-perry/DSC_6621.JPG", "brianna-perry/DSC_6622.JPG",
-                "brianna-perry/DSC_6623.JPG", "brianna-perry/DSC_6624.JPG", "brianna-perry/DSC_6625.JPG",
-                "brianna-perry/DSC_6626.JPG", "brianna-perry/DSC_6627.JPG", "brianna-perry/DSC_6628.JPG",
-                "brianna-perry/DSC_6629.JPG", "brianna-perry/DSC_6631.JPG", "brianna-perry/DSC_6632.JPG",
-                "brianna-perry/DSC_6633.JPG", "brianna-perry/DSC_6634.JPG", "brianna-perry/DSC_6635.JPG",
-                "brianna-perry/DSC_6636.JPG", "brianna-perry/DSC_6638.JPG", "brianna-perry/DSC_6639.JPG",
-                "brianna-perry/DSC_6640.JPG", "brianna-perry/DSC_6641.JPG", "brianna-perry/DSC_6643.JPG",
-                "brianna-perry/DSC_6644.JPG", "brianna-perry/DSC_6645.JPG", "brianna-perry/DSC_6646.JPG",
-                "brianna-perry/DSC_6647.JPG", "brianna-perry/DSC_6648.JPG", "brianna-perry/DSC_6649.JPG",
-                "brianna-perry/DSC_6650.JPG", "brianna-perry/DSC_6651.JPG", "brianna-perry/DSC_6652.JPG",
-                "brianna-perry/DSC_6654.JPG", "brianna-perry/DSC_6655.JPG", "brianna-perry/DSC_6656.JPG",
-                "brianna-perry/DSC_6657.JPG", "brianna-perry/DSC_6658.JPG", "brianna-perry/DSC_6659.JPG",
-                "brianna-perry/DSC_6660.JPG", "brianna-perry/DSC_6661.JPG", "brianna-perry/DSC_6662.JPG",
-                "brianna-perry/DSC_6666.JPG",
-                "kevin-larmee/IMG_0351.JPG", "kevin-larmee/IMG_0399.JPG", "kevin-larmee/IMG_0414.JPG",
-                "kevin-larmee/IMG_0417.JPG", "kevin-larmee/IMG_0420.JPG", "kevin-larmee/IMG_0432.JPG",
-                "kevin-larmee/IMG_0453.JPG", "kevin-larmee/IMG_0456.JPG", "kevin-larmee/IMG_0459.JPG",
-                "kevin-larmee/IMG_0462.JPG", "kevin-larmee/IMG_0468.JPG", "kevin-larmee/IMG_0511.JPG",
-                "kevin-larmee/IMG_0512.JPG", "kevin-larmee/IMG_0513.JPG", "kevin-larmee/IMG_0514.JPG",
-                "kevin-larmee/IMG_0515.JPG", "kevin-larmee/IMG_0517.JPG", "kevin-larmee/IMG_0518.JPG",
-                "kevin-larmee/IMG_0519.JPG", "kevin-larmee/IMG_0520.JPG", "kevin-larmee/IMG_0524.JPG",
-                "kevin-larmee/IMG_0525.JPG", "kevin-larmee/IMG_0526.JPG", "kevin-larmee/IMG_0528.JPG",
-                "kevin-larmee/IMG_0532.JPG", "kevin-larmee/IMG_0533.JPG", "kevin-larmee/IMG_0534.JPG",
-                "kevin-larmee/IMG_0535.JPG", "kevin-larmee/IMG_0536.JPG", "kevin-larmee/IMG_0537.JPG",
-                "kevin-larmee/IMG_0538.JPG", "kevin-larmee/IMG_0540.JPG", "kevin-larmee/IMG_0541.JPG",
-                "kevin-larmee/IMG_0542.JPG", "kevin-larmee/IMG_0543.JPG", "kevin-larmee/IMG_0546.JPG",
-                "kevin-larmee/IMG_0548.JPG", "kevin-larmee/IMG_0553.JPG", "kevin-larmee/IMG_0554.JPG",
-                "kevin-larmee/IMG_0556.JPG", "kevin-larmee/IMG_0559.JPG", "kevin-larmee/IMG_0565.JPG",
-                "kevin-larmee/IMG_0575.JPG", "kevin-larmee/IMG_0577.JPG", "kevin-larmee/IMG_0578.JPG",
-                "kevin-larmee/IMG_0579.JPG", "kevin-larmee/IMG_0580.JPG", "kevin-larmee/IMG_0583.JPG",
-                "kevin-larmee/IMG_0584.JPG", "kevin-larmee/IMG_0588.JPG", "kevin-larmee/IMG_0591.JPG",
-                "altcomics/IMG_3246.HEIC.jpg", "altcomics/IMG_3247.HEIC.jpg", "altcomics/IMG_3248.HEIC.jpg",
-                "altcomics/IMG_3249.HEIC.jpg", "altcomics/IMG_3250.HEIC.jpg", "altcomics/IMG_3251.HEIC.jpg",
-                "altcomics/IMG_3252.HEIC.jpg", "altcomics/IMG_3253.HEIC.jpg", "altcomics/IMG_3254.HEIC.jpg",
-                "altcomics/IMG_3255.HEIC.jpg", "altcomics/IMG_3256.HEIC.jpg", "altcomics/IMG_3257.HEIC.jpg",
-                "altcomics/IMG_3258.HEIC.jpg", "altcomics/IMG_3259.HEIC.jpg", "altcomics/IMG_3260.HEIC.jpg",
-                "altcomics/IMG_3261.HEIC.jpg", "altcomics/IMG_3262.HEIC.jpg", "altcomics/IMG_3263.HEIC.jpg",
-                "altcomics/IMG_3264.HEIC.jpg", "altcomics/IMG_3265.HEIC.jpg", "altcomics/IMG_3266.HEIC.jpg",
-                "altcomics/IMG_3267.HEIC.jpg", "altcomics/IMG_3268.HEIC.jpg", "altcomics/IMG_3269.HEIC.jpg",
-                "altcomics/IMG_3270.HEIC.jpg", "altcomics/IMG_3271.HEIC.jpg", "altcomics/IMG_3272.HEIC.jpg",
-                "altcomics/IMG_3273.HEIC.jpg", "altcomics/IMG_3274.HEIC.jpg", "altcomics/IMG_3275.HEIC.jpg",
-                "altcomics/IMG_3276.HEIC.jpg", "altcomics/IMG_3277.HEIC.jpg", "altcomics/IMG_3278.HEIC.jpg",
-                "altcomics/IMG_3279.HEIC.jpg", "altcomics/IMG_3280.HEIC.jpg", "altcomics/IMG_3281.HEIC.jpg",
-                "altcomics/IMG_3282.HEIC.jpg", "altcomics/IMG_3283.HEIC.jpg", "altcomics/IMG_3284.HEIC.jpg",
-                "altcomics/IMG_3285.HEIC.jpg", "altcomics/IMG_3286.HEIC.jpg", "altcomics/IMG_3287.HEIC.jpg",
-                "altcomics/IMG_3288.HEIC.jpg", "altcomics/IMG_3289.HEIC.jpg", "altcomics/IMG_3290.HEIC.jpg",
-                "altcomics/IMG_3291.HEIC.jpg", "altcomics/IMG_3292.HEIC.jpg", "altcomics/IMG_3293.HEIC.jpg",
-                "altcomics/IMG_3294.HEIC.jpg", "altcomics/IMG_3295.HEIC.jpg", "altcomics/IMG_3296.HEIC.jpg",
-                "altcomics/IMG_3297.HEIC.jpg", "altcomics/IMG_3299.HEIC.jpg", "altcomics/IMG_3300.HEIC.jpg",
-                "altcomics/IMG_3301.HEIC.jpg", "altcomics/IMG_3302.HEIC.jpg", "altcomics/IMG_3303.HEIC.jpg",
-                "altcomics/IMG_3305.HEIC.jpg", "altcomics/IMG_3306.HEIC.jpg", "altcomics/IMG_3307.HEIC.jpg",
-                "altcomics/IMG_3308.HEIC.jpg", "altcomics/IMG_3309.HEIC.jpg", "altcomics/IMG_3314.HEIC.jpg",
-                "altcomics/IMG_3315.HEIC.jpg", "altcomics/IMG_3316.HEIC.jpg", "altcomics/IMG_3318.HEIC.jpg",
-                "altcomics/IMG_3320.HEIC.jpg", "altcomics/IMG_3321.HEIC.jpg", "altcomics/IMG_3322.HEIC.jpg",
-                "altcomics/IMG_3323.HEIC.jpg", "altcomics/IMG_3324.HEIC.jpg", "altcomics/IMG_3325.HEIC.jpg",
-                "altcomics/IMG_3326.HEIC.jpg", "altcomics/IMG_3327.HEIC.jpg", "altcomics/IMG_3328.HEIC.jpg",
-                "altcomics/IMG_3329.HEIC.jpg",
-                "vogel-morra-and-kevin-larmee/1.jpg", "vogel-morra-and-kevin-larmee/2.jpg",
-                "vogel-morra-and-kevin-larmee/3.jpg", "vogel-morra-and-kevin-larmee/4.jpg",
-                "vogel-morra-and-kevin-larmee/5.jpg", "vogel-morra-and-kevin-larmee/5b.jpg",
-                "vogel-morra-and-kevin-larmee/6.jpg", "vogel-morra-and-kevin-larmee/7.jpg",
-                "vogel-morra-and-kevin-larmee/8.jpg", "vogel-morra-and-kevin-larmee/9.jpg",
-                "vogel-morra-and-kevin-larmee/10.jpg", "vogel-morra-and-kevin-larmee/11.jpg",
-                "vogel-morra-and-kevin-larmee/12.jpg", "vogel-morra-and-kevin-larmee/13.jpg",
-                "vogel-morra-and-kevin-larmee/14.jpg", "vogel-morra-and-kevin-larmee/15.jpg",
-                "vogel-morra-and-kevin-larmee/16.jpg", "vogel-morra-and-kevin-larmee/17.jpg",
-                "vogel-morra-and-kevin-larmee/18.jpg", "vogel-morra-and-kevin-larmee/19.jpg",
-                "vogel-morra-and-kevin-larmee/20.jpg"
+                ...Array.from({ length: 11 }, (_, i) => `blaise-larmee/${String(i + 1).padStart(2, '0')}.jpg`),
+                ..."6564 6577 6578 6579 6580 6581 6582 6583 6584 6585 6586 6587 6588 6589 6590 6605 6606 6607 6608 6609 6610 6611 6612 6615 6616 6617 6618 6619 6621 6622 6623 6624 6625 6626 6627 6628 6629 6631 6632 6633 6634 6635 6636 6638 6639 6640 6641 6643 6644 6645 6646 6647 6648 6649 6650 6651 6652 6654 6655 6656 6657 6658 6659 6660 6661 6662 6666".split(" ").map(n => `brianna-perry/DSC_${n}.JPG`),
+                ..."0351 0399 0414 0417 0420 0432 0453 0456 0459 0462 0468 0511 0512 0513 0514 0515 0517 0518 0519 0520 0524 0525 0526 0528 0532 0533 0534 0535 0536 0537 0538 0540 0541 0542 0543 0546 0548 0553 0554 0556 0559 0565 0575 0577 0578 0579 0580 0583 0584 0588 0591".split(" ").map(n => `kevin-larmee/IMG_${n}.JPG`),
+                ..."3246 3247 3248 3249 3250 3251 3252 3253 3254 3255 3256 3257 3258 3259 3260 3261 3262 3263 3264 3265 3266 3267 3268 3269 3270 3271 3272 3273 3274 3275 3276 3277 3278 3279 3280 3281 3282 3283 3284 3285 3286 3287 3288 3289 3290 3291 3292 3293 3294 3295 3296 3297 3299 3300 3301 3302 3303 3305 3306 3307 3308 3309 3314 3315 3316 3318 3320 3321 3322 3323 3324 3325 3326 3327 3328 3329".split(" ").map(n => `altcomics/IMG_${n}.HEIC.jpg`),
+                ..."1 2 3 4 5 5b 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20".split(" ").map(n => `vogel-morra-and-kevin-larmee/${n}.jpg`)
             ]
         },
-        "random-apartment-show": { prefix: "", pool: ["apartment-01.jpg", "apartment-02.jpg", "apartment-03.jpg", "apartment-04.jpg", "apartment-05.jpg", "apartment-06.jpg", "apartment-07.jpg", "apartment-08.jpg", "apartment-09.jpg", "apartment-10.jpg", "apartment-11.jpg"] },
-        "random-my-parents": { prefix: "", pool: ["myparents-01.jpg", "myparents-02.jpg", "myparents-03.jpg", "myparents-04.jpg", "myparents-05.jpg", "myparents-06.jpg", "myparents-07.jpg"] },
-        "random-pirates": { prefix: "", pool: ["piratesofthecarbombinfantry-01.jpg", "piratesofthecarbombinfantry-02.jpg", "piratesofthecarbombinfantry-03.jpg", "piratesofthecarbombinfantry-04.jpg", "piratesofthecarbombinfantry-05.jpg", "piratesofthecarbombinfantry-06.jpg", "piratesofthecarbombinfantry-07.jpg", "piratesofthecarbombinfantry-08.jpg", "piratesofthecarbombinfantry-09.jpg", "piratesofthecarbombinfantry-10.jpg"] },
-        "random-jaywalk": { prefix: "", pool: ["jaywalk-01.jpg", "jaywalk-02.jpg", "jaywalk-03.jpg", "jaywalk-04.jpg", "jaywalk-05.jpg", "jaywalk-06.jpg", "jaywalk-07.jpg"] },
-        "random-young-lions": { prefix: "", pool: ["young-lions-artist-edition-07.jpg"] },
-        "random-young-lions-highlights": {
-            prefix: "",
+        "random-apartment-show": { targetUrl: "apartment.html", pool: Array.from({ length: 11 }, (_, i) => `apartment-${String(i + 1).padStart(2, '0')}.jpg`) },
+        "random-my-parents": { pool: Array.from({ length: 7 }, (_, i) => `myparents-${String(i + 1).padStart(2, '0')}.jpg`) },
+        "random-pirates": { pool: Array.from({ length: 10 }, (_, i) => `piratesofthecarbombinfantry-${String(i + 1).padStart(2, '0')}.jpg`) },
+        "random-jaywalk": { pool: Array.from({ length: 7 }, (_, i) => `jaywalk-${String(i + 1).padStart(2, '0')}.jpg`) },
+        "random-young-lions": { targetUrl: "young-lions.html", pool: ["young-lions-artist-edition-07.jpg"] },
+        "random-young-lions-highlights": { targetUrl: "young-lions.html", pool: ["02", "03", "04"].map(n => `young-lions-artist-editions-highlights-${n}.jpg`) },
+        "random-mirror-mirror": { pool: Array.from({ length: 97 }, (_, i) => `mirrormirror-${String(i + 1).padStart(2, '0')}.jpg`) },
+        "random-3-books": { targetUrl: "3-books.html", pool: [1, 2, 3, 4, 6, 8, 9, 11, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27].map(n => `3-books-artist-edition-${String(n).padStart(2, '0')}.jpg`) },
+        "random-3-books-highlights": { targetUrl: "3-books.html", pool: b3pool },
+        "random-silkscreen-books": { targetUrl: "untitled-silkscreen-book.html", pool: ["01", "02", "03"].map(n => `untitled-silkscreen-book-${n}.jpg`) },
+        "random-construction": {
+            allowClick: true,
             pool: [
-                "young-lions-artist-editions-highlights-02.jpg",
-                "young-lions-artist-editions-highlights-03.jpg",
-                "young-lions-artist-editions-highlights-04.jpg"
+                "construction.jpg",
+                "construction-02.jpg",
+                "untitled-silkscreen-book-01.jpg",
+                "untitled-silkscreen-book-02.jpg",
+                "untitled-silkscreen-book-03.jpg"
+            ],
+            targetUrls: [
+                "construction.html",
+                "construction.html",
+                "untitled-silkscreen-book-01.html",
+                "untitled-silkscreen-book-02.html",
+                "untitled-silkscreen-book-03.html"
             ]
-        },
-        "random-mirror-mirror": {
-            prefix: "",
-            pool: Array.from({ length: 97 }, (_, i) => `mirrormirror-${String(i + 1).padStart(2, '0')}.jpg`)
-        },
-        "random-3-books": { prefix: "", pool: ["3-books-artist-edition-01.jpg", "3-books-artist-edition-02.jpg", "3-books-artist-edition-03.jpg", "3-books-artist-edition-04.jpg", "3-books-artist-edition-06.jpg", "3-books-artist-edition-08.jpg", "3-books-artist-edition-09.jpg", "3-books-artist-edition-11.jpg", "3-books-artist-edition-14.jpg", "3-books-artist-edition-15.jpg", "3-books-artist-edition-16.jpg", "3-books-artist-edition-17.jpg", "3-books-artist-edition-18.jpg", "3-books-artist-edition-19.jpg", "3-books-artist-edition-21.jpg", "3-books-artist-edition-22.jpg", "3-books-artist-edition-23.jpg", "3-books-artist-edition-25.jpg", "3-books-artist-edition-26.jpg", "3-books-artist-edition-27.jpg"] },
-        "random-3-books-highlights": { prefix: "", pool: b3pool },
-        "random-silkscreen-books": { prefix: "", pool: ["untitled-silkscreen-book-01.jpg", "untitled-silkscreen-book-02.jpg", "untitled-silkscreen-book-03.jpg"] }
+        }
     };
 
-    // Determine current page details
-    const pathname = window.location.pathname.toLowerCase();
-    const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+    const fn = window.location.pathname.split('/').pop().toLowerCase();
+    const isRoot = !fn || fn === "/";
+    const disableClick = ["index.html", "books.html", "shows.html", "bio.html"].includes(fn) || isRoot;
+    const folder = (["index.html", "bio.html", "books.html", "shows.html"].includes(fn) || isRoot) ? "lo/" : "hi/";
 
-    const loPages = ["index.html", "bio.html", "books.html", "shows.html"];
-    const isRootIndex = filename === "" || filename === "/";
-    const useLo = loPages.includes(filename) || isRootIndex;
+    const getRand = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-    const disabledPages = ["index.html", "books.html", "shows.html", "bio.html"];
-    const disableClick = disabledPages.includes(filename) || isRootIndex;
-
-    const folder = useLo ? "lo/" : "hi/";
-
-    Object.keys(swaps).forEach(function (id) {
+    Object.entries(swaps).forEach(([id, { prefix, pool, targetUrl, targetUrls, allowClick }]) => {
         const el = document.getElementById(id);
-        const config = swaps[id];
-        if (!el || !config.pool || config.pool.length === 0) return;
+        if (!el || !pool?.length) return;
 
-        function setRandomImage() {
-            const choice = config.pool[Math.floor(Math.random() * config.pool.length)];
-            const isFullUrl = choice.startsWith("http://") || choice.startsWith("https://");
+        const pickIndex = Math.floor(Math.random() * pool.length);
+        const pick = pool[pickIndex];
+        el.src = pick.startsWith("http") ? pick : (prefix !== undefined ? prefix : folder) + pick;
 
-            if (isFullUrl) {
-                el.src = choice;
-            } else if (config.prefix) {
-                // If prefix is set (like baseUrl), skip inserting "hi/" or "lo/"
-                el.src = config.prefix + choice;
-            } else {
-                el.src = folder + choice;
-            }
-        }
-
-        // Set initial image swap
-        setRandomImage();
-
-        // Swap on click only if not on an excluded page
-        if (!disableClick) {
+        if (!disableClick || allowClick) {
+            const link = document.getElementById(`${id}-link`) || el.closest("a");
             el.style.cursor = "pointer";
-            el.addEventListener("click", setRandomImage);
+            if (link && (targetUrl || targetUrls)) {
+                link.href = targetUrls ? targetUrls[pickIndex] : targetUrl;
+            }
+            el.addEventListener("click", () => {
+                if (link && (targetUrl || targetUrls)) return;
+                el.src = (prefix !== undefined ? prefix : folder) + getRand(pool);
+            });
         }
     });
 
-    // Handle random-one image swap
     const imgOne = document.getElementById('random-one');
-
-    function getRandomImage(excludeUrl = null) {
-        if (imageData.length === 0) return '';
-        if (imageData.length === 1) return imageData[0];
-
-        const available = imageData.filter(url => url !== excludeUrl);
-        return available[Math.floor(Math.random() * available.length)];
-    }
-
-    if (imgOne) {
-        imgOne.src = getRandomImage();
-
+    if (imgOne && imageData.length) {
+        imgOne.src = getRand(imageData);
         if (!disableClick) {
             imgOne.style.cursor = "pointer";
-            imgOne.addEventListener('click', () => {
-                imgOne.src = getRandomImage(imgOne.src);
-            });
+            imgOne.addEventListener('click', () => imgOne.src = getRand(imageData.filter(u => u !== imgOne.src)));
         }
     }
 })();
 
-// Keypad Navigation - Active on numbered pages or index.html
-document.addEventListener('keydown', (e) => {
-    // Ignore key combos (Ctrl, Alt, Meta/Cmd, Shift) and text inputs
-    if (e.ctrlKey || e.altKey || e.metaKey || e.shiftKey) return;
-    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+// // Keypad Navigation
+// document.addEventListener('keydown', (e) => {
+//     if (e.ctrlKey || e.altKey || e.metaKey || e.shiftKey || ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+//     const path = window.location.pathname.split('/').pop().toLowerCase();
+//     const isIdx = !path || path === 'index.html';
+//     if (!isIdx && !/^\d+(\.html)?$/.test(path)) return;
 
-    const path = window.location.pathname.split('/').pop().toLowerCase();
-    const isIndex = path === '' || path === 'index.html';
-    const isNumberPage = /^\d+(\.html)?$/.test(path);
-
-    if (!isIndex && !isNumberPage) return;
-
-    const page = isIndex ? 0 : parseInt(path, 10);
-
-    if (e.key === 'ArrowLeft') {
-        window.location.href = page === 1 ? 'index.html' : `${page - 1}.html`;
-    } 
-    else if (e.key === 'ArrowRight') {
-        window.location.href = page === 0 ? '1.html' : `${page + 1}.html`;
-    }
-});
+//     const page = isIdx ? 0 : parseInt(path, 10);
+//     if (e.key === 'ArrowLeft') window.location.href = page === 1 ? 'index.html' : `${page - 1}.html`;
+//     if (e.key === 'ArrowRight' && page < 5) window.location.href = page === 0 ? '1.html' : `${page + 1}.html`;
+// });
