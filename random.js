@@ -1,7 +1,7 @@
 (function () {
     const baseUrl = "https://apartment.gallery/400/";
 
-    const imageData = Array.from({ length: 90 }, (_, i) => `hi/2001-${String(i + 2).padStart(2, '0')}.jpg`);
+    const imageData = Array.from({ length: 90 }, (_, i) => `2001-${String(i + 2).padStart(2, '0')}.jpg`);
     const dominoData = ["hi/2001-domino-01.jpeg", "hi/2001-domino-02.jpeg"];
     const bibliokleptData = Array.from({ length: 5 }, (_, i) => `hi/biblioklept-${String(i + 1).padStart(2, '0')}.jpg`);
     const b3pool = Array.from({ length: 51 }, (_, i) => i + 1)
@@ -109,7 +109,7 @@
     if (imgOne && imageData.length) {
         const requestedIndex = requestedImage ? imageData.findIndex(matchesRequestedImage) : -1;
         const selectedImage = requestedIndex >= 0 ? imageData[requestedIndex] : getRand(imageData);
-        imgOne.src = selectedImage;
+        imgOne.src = folder + selectedImage;
         const link = imgOne.closest("a");
         const linkHref = link?.getAttribute("href") || "";
         if (disableClick && link && !/^(https?:|\/\/)/i.test(linkHref)) {
@@ -117,7 +117,7 @@
         }
         if (!disableClick) {
             imgOne.style.cursor = "pointer";
-            imgOne.addEventListener('click', () => imgOne.src = getRand(imageData.filter(u => u !== imgOne.src)));
+            imgOne.addEventListener('click', () => imgOne.src = folder + getRand(imageData.filter(u => folder + u !== imgOne.src)));
         }
     }
 
