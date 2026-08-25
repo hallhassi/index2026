@@ -2,6 +2,8 @@
     const baseUrl = "https://apartment.gallery/400/";
 
     const imageData = Array.from({ length: 90 }, (_, i) => `hi/2001-${String(i + 2).padStart(2, '0')}.jpg`);
+    const dominoData = ["hi/2001-domino-01.jpeg", "hi/2001-domino-02.jpeg"];
+    const bibliokleptData = Array.from({ length: 5 }, (_, i) => `hi/biblioklept-${String(i + 1).padStart(2, '0')}.jpg`);
     const b3pool = Array.from({ length: 51 }, (_, i) => i + 1)
         .filter(n => n < 47 || n > 49)
         .map(n => `3-books-artist-editions-highlights-${String(n).padStart(2, '0')}.jpg`);
@@ -15,7 +17,10 @@
             preserveImage: false
         },
         "random-apartment-gallery": {
+            allowClick: true,
             prefix: baseUrl,
+            targetUrl: (imageSrc) => `https://apartment.gallery/${new URL(imageSrc).pathname.split("/")[2]}`,
+            preserveImage: false,
             pool: [
                 ...Array.from({ length: 11 }, (_, i) => `blaise-larmee/${String(i + 1).padStart(2, '0')}.jpg`),
                 ..."6564 6577 6578 6579 6580 6581 6582 6583 6584 6585 6586 6587 6588 6589 6590 6605 6606 6607 6608 6609 6610 6611 6612 6615 6616 6617 6618 6619 6621 6622 6623 6624 6625 6626 6627 6628 6629 6631 6632 6633 6634 6635 6636 6638 6639 6640 6641 6643 6644 6645 6646 6647 6648 6649 6650 6651 6652 6654 6655 6656 6657 6658 6659 6660 6661 6662 6666".split(" ").map(n => `brianna-perry/DSC_${n}.JPG`),
@@ -28,6 +33,13 @@
         "random-my-parents": { pool: Array.from({ length: 7 }, (_, i) => `myparents-${String(i + 1).padStart(2, '0')}.jpg`) },
         "random-pirates": { pool: Array.from({ length: 10 }, (_, i) => `piratesofthecarbombinfantry-${String(i + 1).padStart(2, '0')}.jpg`) },
         "random-jaywalk": { pool: Array.from({ length: 7 }, (_, i) => `jaywalk-${String(i + 1).padStart(2, '0')}.jpg`) },
+        "random-comics-youth": {
+            allowClick: true,
+            prefix: "",
+            pool: ["lo/comics-youth-1.jpg", "lo/comics-youth-2.jpg"],
+            targetUrls: ["comics-youth-1.html", "comics-youth-2.html"],
+            preserveImage: false
+        },
         "random-young-lions": { allowClick: true, targetUrl: "young-lions-artist-edition-07.html", pool: ["young-lions-artist-edition-07.jpg"] },
         "random-young-lions-highlights": { targetUrl: "young-lions-artist-edition-07.html", pool: ["02", "03", "04"].map(n => `young-lions-artist-editions-highlights-${n}.jpg`) },
         "random-mirror-mirror": { pool: Array.from({ length: 97 }, (_, i) => `mirrormirror-${String(i + 1).padStart(2, '0')}.jpg`) },
@@ -77,7 +89,11 @@
         if (!disableClick || allowClick) {
             el.style.cursor = "pointer";
             if (link && (targetUrl || targetUrls)) {
-                const destination = targetUrls ? targetUrls[pickIndex] : targetUrl;
+                const destination = targetUrls
+                    ? targetUrls[pickIndex]
+                    : typeof targetUrl === "function"
+                        ? targetUrl(el.src, pickIndex)
+                        : targetUrl;
                 link.href = preserveImage ? `${destination}?image=${encodeURIComponent(pick)}` : destination;
             }
             el.addEventListener("click", () => {
@@ -104,16 +120,22 @@
             imgOne.addEventListener('click', () => imgOne.src = getRand(imageData.filter(u => u !== imgOne.src)));
         }
     }
+
+    const randomDomino = document.getElementById('random-domino');
+    if (randomDomino) randomDomino.src = getRand(dominoData);
+
+    const randomTwo = document.getElementById('random-two');
+    if (randomTwo) randomTwo.src = getRand(bibliokleptData);
 })();
 
-// // Keypad Navigation
-// document.addEventListener('keydown', (e) => {
-//     if (e.ctrlKey || e.altKey || e.metaKey || e.shiftKey || ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
-//     const path = window.location.pathname.split('/').pop().toLowerCase();
-//     const isIdx = !path || path === 'index.html';
-//     if (!isIdx && !/^\d+(\.html)?$/.test(path)) return;
+// Keypad Navigation
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey || e.altKey || e.metaKey || e.shiftKey || ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+    const path = window.location.pathname.split('/').pop().toLowerCase();
+    const isIdx = !path || path === 'index.html';
+    if (!isIdx && !/^\d+(\.html)?$/.test(path)) return;
 
-//     const page = isIdx ? 0 : parseInt(path, 10);
-//     if (e.key === 'ArrowLeft') window.location.href = page === 1 ? 'index.html' : `${page - 1}.html`;
-//     if (e.key === 'ArrowRight' && page < 5) window.location.href = page === 0 ? '1.html' : `${page + 1}.html`;
-// });
+    const page = isIdx ? 0 : parseInt(path, 10);
+    if (e.key === 'ArrowLeft') window.location.href = page === 1 ? 'index.html' : `${page - 1}.html`;
+    if (e.key === 'ArrowRight' && page < 5) window.location.href = page === 0 ? '1.html' : `${page + 1}.html`;
+});

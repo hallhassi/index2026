@@ -1,6 +1,6 @@
 body {margin: 0 0 4em 0; font-size:1.3em;text-align: center;}
 
-img {
+img,iframe {
     max-width: 100%;
     width: auto;
     height: auto;
@@ -19,10 +19,10 @@ a {
 /* Target all links starting with http or https */
 a[href^="http://"] img,
 a[href^="https://"] img {
-max-width: 9%;}
+max-width: 10em;}
 
 @media (orientation: landscape) {
-    img {
+    img,iframe {
         max-height: 100vh;
     }
 }
