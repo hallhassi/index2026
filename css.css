@@ -1,5 +1,6 @@
 body {margin: 0 0 4em 0; font-size:1.3em;text-align: center;}
 
+div {display: inline-block;}
 img,iframe {
     max-width: 100%;
     width: auto;
