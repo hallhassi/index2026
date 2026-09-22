@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mirror Mirror by Blaise Larmee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <meta property="og:title" content="Mirror Mirror by Blaise Larmee">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blaiselarmee.com/mirror-mirror.html">
+    <meta property="og:image" content="https://blaiselarmee.com/lo/mirror-mirror.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="Mirror Mirror by Blaise Larmee.">
+    <style>
+        ul {
+            width: fit-content;
+            text-align: left;
+            margin: 0 auto;
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 2em;
+        }
+
+        li {
+            display: flex;
+        }
+
+        #buy-list li {
+            cursor: pointer;
+        }
+
+        span {
+            width: 3em;
+            text-align: right;
+            padding-right: 1ch;
+        }
+
+        .added {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="article">
+        <p><a href="index.html">Blaise Larmee</a></p>
+        <p>Buy</p>
+    </div>
+
+    <!-- <ul>
+        <li>Venmo Blaise-Larmee</li>
+        <li>Zelle 773-909-6070</li>
+        <li>Paypal blaise.larmee@gmail.com</li>
+    </ul> -->
+
+    <ul id="buy-list">
+        <li id="buy-2001" data-price="25" data-oz="15.2" data-title="2001">$25 2001</li>
+        <li id="buy-mirror-mirror" data-price="28" data-oz="20.8" data-title="Mirror Mirror">$28 Mirror Mirror</li>
+        <li id="buy-altcomics-6" data-price="5" data-oz="2" data-title="Altcomics 6">$5 Altcomics 6</li>
+        <li id="buy-altcomics-7" data-price="7" data-oz="2" data-title="Altcomics 7">$7 Altcomics 7</li>
+        <li id="buy-jaywalk" data-price="15" data-oz="2" data-title="Jaywalk">$15 Jaywalk</li>
+        <li id="buy-the-whale" data-price="25" data-oz="4" data-title="The Whale">$25 The Whale</li>
+        <li id="buy-comics-youth-1" data-price="5" data-oz="1" data-letter="1" data-title="Comics Youth 1">$5 Comics Youth 1</li>
+        <li id="buy-comics-youth-2" data-price="5" data-oz="1" data-letter="1" data-title="Comics Youth 2">$5 Comics Youth 2</li>
+        <li id="buy-young-lions-artist-edition-07" data-price="25" data-oz="7" data-title="Young Lions Artist Edition 07">$25 Young Lions Artist Edition 07</li>
+        <li id="buy-untitled-silkscreen-book-01" data-price="50" data-oz="24" data-title="Untitled Silkscreen Book 01">$50 Untitled Silkscreen Book 01</li>
+        <li id="buy-untitled-silkscreen-book-02" data-price="50" data-oz="24" data-title="Untitled Silkscreen Book 02">$50 Untitled Silkscreen Book 02</li>
+        <li id="buy-untitled-silkscreen-book-03" data-price="50" data-oz="24" data-title="Untitled Silkscreen Book 03">$50 Untitled Silkscreen Book 03</li>
+        <li id="buy-3-books-artist-edition-01" data-price="500" data-oz="1" data-title="3 Books Artist Edition 01">$500 3 Books Artist Edition 01</li>
+        <li id="buy-3-books-artist-edition-02" data-price="500" data-oz="1" data-title="3 Books Artist Edition 02">$500 3 Books Artist Edition 02</li>
+        <li id="buy-3-books-artist-edition-03" data-price="200" data-oz="1" data-title="3 Books Artist Edition 03">$200 3 Books Artist Edition 03</li>
+        <li id="buy-3-books-artist-edition-04" data-price="150" data-oz="1" data-title="3 Books Artist Edition 04">$150 3 Books Artist Edition 04</li>
+        <li id="buy-3-books-artist-edition-06" data-price="150" data-oz="1" data-title="3 Books Artist Edition 06">$150 3 Books Artist Edition 06</li>
+        <li id="buy-3-books-artist-edition-08" data-price="150" data-oz="1" data-title="3 Books Artist Edition 08">$150 3 Books Artist Edition 08</li>
+        <li id="buy-3-books-artist-edition-09" data-price="150" data-oz="1" data-title="3 Books Artist Edition 09">$150 3 Books Artist Edition 09</li>
+        <li id="buy-3-books-artist-edition-10" data-price="100" data-oz="1" data-title="3 Books Artist Edition 10">$100 3 Books Artist Edition 10</li>
+        <li id="buy-3-books-artist-edition-11" data-price="100" data-oz="1" data-title="3 Books Artist Edition 11">$100 3 Books Artist Edition 11</li>
+        <li id="buy-3-books-artist-edition-12" data-price="100" data-oz="1" data-title="3 Books Artist Edition 12">$100 3 Books Artist Edition 12</li>
+        <li id="buy-3-books-artist-edition-14" data-price="50" data-oz="1" data-title="3 Books Artist Edition 14">$50 3 Books Artist Edition 14</li>
+        <li id="buy-3-books-artist-edition-15" data-price="50" data-oz="1" data-title="3 Books Artist Edition 15">$50 3 Books Artist Edition 15</li>
+        <li id="buy-3-books-artist-edition-16" data-price="50" data-oz="1" data-title="3 Books Artist Edition 16">$50 3 Books Artist Edition 16</li>
+        <li id="buy-3-books-artist-edition-17" data-price="50" data-oz="1" data-title="3 Books Artist Edition 17">$50 3 Books Artist Edition 17</li>
+        <li id="buy-3-books-artist-edition-19" data-price="50" data-oz="1" data-title="3 Books Artist Edition 19">$50 3 Books Artist Edition 19</li>
+        <li id="buy-3-books-artist-edition-21" data-price="50" data-oz="1" data-title="3 Books Artist Edition 21">$50 3 Books Artist Edition 21</li>
+        <li id="buy-3-books-artist-edition-22" data-price="50" data-oz="1" data-title="3 Books Artist Edition 22">$50 3 Books Artist Edition 22</li>
+        <li id="buy-3-books-artist-edition-23" data-price="50" data-oz="1" data-title="3 Books Artist Edition 23">$50 3 Books Artist Edition 23</li>
+        <li id="buy-3-books-artist-edition-25" data-price="50" data-oz="1" data-title="3 Books Artist Edition 25">$50 3 Books Artist Edition 25</li>
+        <li id="buy-3-books-artist-edition-26" data-price="50" data-oz="1" data-title="3 Books Artist Edition 26">$50 3 Books Artist Edition 26</li>
+        <li id="buy-3-books-artist-edition-27" data-price="50" data-oz="1" data-title="3 Books Artist Edition 27">$50 3 Books Artist Edition 27</li>
+    </ul>
+
+    <ul>
+        <li>US: <span id="usValue">$0.00</span></li>
+        <li>INTL: <span id="intlValue">$0.00</span></li>
+    </ul>
+
+    <p><a id="emailLink" href="mailto:">blaise.larmee@gmail.com</a></p>
+
+    <script>
+
+        (function () {
+            // ---------------------------------------------------------------
+            // US domestic rates: USPS Media Mail, published table (rates
+            // effective July 2026, rounded up to the next pound). Source:
+            // USPS Media Mail rate filing via Ingram Content Group.
+            var US_TIERS = [
+                { maxOz: 16, price: 4.39 },  // 1 lb
+                { maxOz: 32, price: 5.13 },  // 2 lb
+                { maxOz: 48, price: 5.86 },  // 3 lb
+                { maxOz: 64, price: 6.60 },  // 4 lb
+                { maxOz: 80, price: 7.34 },  // 5 lb
+                { maxOz: 96, price: 8.08 },  // 6 lb
+                { maxOz: 112, price: 8.81 },  // 7 lb
+                { maxOz: 128, price: 9.55 },  // 8 lb
+                { maxOz: 144, price: 10.29 },  // 9 lb
+                { maxOz: 160, price: 11.02 }   // 10 lb
+            ];
+            var US_PER_LB_OVER = 0.74; // beyond 10 lb, per USPS's per-pound increment
+            var US_FLOOR = 2.50; // nothing domestic ships for less than this
+
+            // International rates: still placeholder above 1 lb (edit these) —
+            // the only real figure given is flat $25 for anything under 1 lb.
+            var INTL_TIERS = [
+                { maxOz: 16, price: 25.00 },  // under 1 lb, flat
+                { maxOz: 32, price: 48.00 },
+                { maxOz: 48, price: 61.00 },
+                { maxOz: 64, price: 74.00 },
+                { maxOz: 80, price: 87.00 }
+            ];
+            var INTL_PER_LB_OVER = 13.00;
+
+            var LETTER_RATE_US = 2.50;   // 1-2 Comics Youth alone, domestic
+            var LETTER_RATE_INTL = 6.00; // 1-2 Comics Youth alone, international
+            // ---------------------------------------------------------------
+
+            function tierPrice(oz, tiers, perLbOver) {
+                for (var i = 0; i < tiers.length; i++) {
+                    if (oz <= tiers[i].maxOz) return tiers[i].price;
+                }
+                var last = tiers[tiers.length - 1];
+                var extraLb = Math.ceil((oz - last.maxOz) / 16);
+                return last.price + extraLb * perLbOver;
+            }
+
+            var items = Array.prototype.slice.call(document.querySelectorAll('li[id^="buy-"]'));
+            var usValueEl = document.getElementById('usValue');
+            var intlValueEl = document.getElementById('intlValue');
+            var emailLinkEl = document.getElementById('emailLink');
+
+            function recalc() {
+                var selected = items.filter(function (li) { return li.dataset.added === '1'; });
+                var totalOz = 0;
+                var itemsSubtotal = 0;
+                selected.forEach(function (li) {
+                    totalOz += parseFloat(li.dataset.oz);
+                    itemsSubtotal += parseFloat(li.dataset.price);
+                });
+
+                var allLetterEligible = selected.length > 0 && selected.length <= 2 &&
+                    selected.every(function (li) { return li.dataset.letter === '1'; });
+
+                var usShipping, intlShipping;
+                if (selected.length === 0) {
+                    usShipping = 0;
+                    intlShipping = 0;
+                } else if (allLetterEligible) {
+                    usShipping = LETTER_RATE_US;
+                    intlShipping = LETTER_RATE_INTL;
+                } else {
+                    usShipping = Math.max(tierPrice(totalOz, US_TIERS, US_PER_LB_OVER), US_FLOOR);
+                    intlShipping = tierPrice(totalOz, INTL_TIERS, INTL_PER_LB_OVER);
+                }
+
+                var usTotal = itemsSubtotal + usShipping;
+                var intlTotal = itemsSubtotal + intlShipping;
+
+                usValueEl.textContent = '$' + usTotal.toFixed(2);
+                intlValueEl.textContent = '$' + intlTotal.toFixed(2);
+
+                var lines = selected.map(function (li) {
+                    return '$' + li.dataset.price + ' ' + li.dataset.title;
+                });
+                var body = lines.join('\r\n') +
+                    '\r\n\r\nUS Total: $' + usTotal.toFixed(2) +
+                    '\r\nINTL Total: $' + intlTotal.toFixed(2);
+                emailLinkEl.href = 'mailto:?subject=' + encodeURIComponent('Order') +
+                    '&body=' + encodeURIComponent(body);
+            }
+
+            function setAdded(li, added) {
+                li.dataset.added = added ? '1' : '0';
+                li.classList.toggle('added', added);
+            }
+
+            items.forEach(function (li) {
+                li.addEventListener('click', function () {
+                    setAdded(li, li.dataset.added !== '1');
+                    recalc();
+                });
+            });
+
+            var hashId = window.location.hash.slice(1);
+            if (hashId) {
+                var target = document.getElementById(hashId);
+                if (target && target.matches('li[id^="buy-"]')) {
+                    setAdded(target, true);
+                }
+            }
+
+            recalc();
+
+        })();
+    </script>
+</body>
+
+</html>

@@ -60,8 +60,15 @@
         "random-mirror-mirror": { pool: Array.from({ length: 97 }, (_, i) => `mirrormirror-${String(i + 1).padStart(2, '0')}.jpg`) },
         "random-3-books": {
             allowClick: true,
+            preserveImage: false,
             pool: [1, 2, 3, 4, 6, 8, 9, 11, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27].map(n => `3-books-artist-edition-${String(n).padStart(2, '0')}.jpg`),
             targetUrls: [1, 2, 3, 4, 6, 8, 9, 11, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27].map(n => `3-books-artist-edition-${String(n).padStart(2, '0')}.html`)
+        },
+        "random-young-lions": {
+            allowClick: true,
+            preserveImage: false,
+            pool: ["young-lions-artist-edition-07.jpg"],
+            targetUrls: ["young-lions-artist-edition-07.html"]
         },
         "random-3-books-highlights": { targetUrl: "3-books.html", pool: b3pool },
         "random-cruise": {
